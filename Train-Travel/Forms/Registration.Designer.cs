@@ -30,44 +30,46 @@ namespace Train_Travel.Forms
         private void InitializeComponent()
         {
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.button1 = new System.Windows.Forms.Button();
+            this.labelErrorReg = new System.Windows.Forms.Label();
+            this.buttonRegister = new System.Windows.Forms.Button();
             this.label8 = new System.Windows.Forms.Label();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
-            this.textBox6 = new System.Windows.Forms.TextBox();
+            this.comboBoxType = new System.Windows.Forms.ComboBox();
+            this.textBoxConfirm = new System.Windows.Forms.TextBox();
             this.label7 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
-            this.textBox5 = new System.Windows.Forms.TextBox();
-            this.textBox4 = new System.Windows.Forms.TextBox();
+            this.textBoxPassword = new System.Windows.Forms.TextBox();
+            this.textBoxEmail = new System.Windows.Forms.TextBox();
             this.label5 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
-            this.textBox3 = new System.Windows.Forms.TextBox();
-            this.textBox2 = new System.Windows.Forms.TextBox();
+            this.textBoxMiddleName = new System.Windows.Forms.TextBox();
+            this.textBoxName = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
-            this.maskedTextBox1 = new System.Windows.Forms.MaskedTextBox();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.maskedTextBoxPhone = new System.Windows.Forms.MaskedTextBox();
+            this.textBoxLastName = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
             // groupBox1
             // 
-            this.groupBox1.Controls.Add(this.button1);
+            this.groupBox1.Controls.Add(this.labelErrorReg);
+            this.groupBox1.Controls.Add(this.buttonRegister);
             this.groupBox1.Controls.Add(this.label8);
-            this.groupBox1.Controls.Add(this.comboBox1);
-            this.groupBox1.Controls.Add(this.textBox6);
+            this.groupBox1.Controls.Add(this.comboBoxType);
+            this.groupBox1.Controls.Add(this.textBoxConfirm);
             this.groupBox1.Controls.Add(this.label7);
             this.groupBox1.Controls.Add(this.label6);
-            this.groupBox1.Controls.Add(this.textBox5);
-            this.groupBox1.Controls.Add(this.textBox4);
+            this.groupBox1.Controls.Add(this.textBoxPassword);
+            this.groupBox1.Controls.Add(this.textBoxEmail);
             this.groupBox1.Controls.Add(this.label5);
             this.groupBox1.Controls.Add(this.label4);
             this.groupBox1.Controls.Add(this.label3);
-            this.groupBox1.Controls.Add(this.textBox3);
-            this.groupBox1.Controls.Add(this.textBox2);
+            this.groupBox1.Controls.Add(this.textBoxMiddleName);
+            this.groupBox1.Controls.Add(this.textBoxName);
             this.groupBox1.Controls.Add(this.label2);
-            this.groupBox1.Controls.Add(this.maskedTextBox1);
-            this.groupBox1.Controls.Add(this.textBox1);
+            this.groupBox1.Controls.Add(this.maskedTextBoxPhone);
+            this.groupBox1.Controls.Add(this.textBoxLastName);
             this.groupBox1.Controls.Add(this.label1);
             this.groupBox1.Location = new System.Drawing.Point(12, 12);
             this.groupBox1.Name = "groupBox1";
@@ -76,14 +78,26 @@ namespace Train_Travel.Forms
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Регистрация";
             // 
-            // button1
+            // labelErrorReg
             // 
-            this.button1.Location = new System.Drawing.Point(40, 315);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(244, 23);
-            this.button1.TabIndex = 8;
-            this.button1.Text = "Зарегистрироваться";
-            this.button1.UseVisualStyleBackColor = true;
+            this.labelErrorReg.AutoSize = true;
+            this.labelErrorReg.BackColor = System.Drawing.SystemColors.Control;
+            this.labelErrorReg.ForeColor = System.Drawing.Color.Red;
+            this.labelErrorReg.Location = new System.Drawing.Point(78, 299);
+            this.labelErrorReg.Name = "labelErrorReg";
+            this.labelErrorReg.Size = new System.Drawing.Size(13, 13);
+            this.labelErrorReg.TabIndex = 16;
+            this.labelErrorReg.Text = "  ";
+            // 
+            // buttonRegister
+            // 
+            this.buttonRegister.Location = new System.Drawing.Point(40, 315);
+            this.buttonRegister.Name = "buttonRegister";
+            this.buttonRegister.Size = new System.Drawing.Size(244, 23);
+            this.buttonRegister.TabIndex = 8;
+            this.buttonRegister.Text = "Зарегистрироваться";
+            this.buttonRegister.UseVisualStyleBackColor = true;
+            this.buttonRegister.Click += new System.EventHandler(this.buttonRegister_Click);
             // 
             // label8
             // 
@@ -94,24 +108,26 @@ namespace Train_Travel.Forms
             this.label8.TabIndex = 15;
             this.label8.Text = "Тип учётной записи";
             // 
-            // comboBox1
+            // comboBoxType
             // 
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Items.AddRange(new object[] {
+            this.comboBoxType.FormattingEnabled = true;
+            this.comboBoxType.Items.AddRange(new object[] {
             "Обычный пользователь",
             "Диспетчер"});
-            this.comboBox1.Location = new System.Drawing.Point(40, 265);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(144, 21);
-            this.comboBox1.TabIndex = 7;
+            this.comboBoxType.Location = new System.Drawing.Point(40, 265);
+            this.comboBoxType.Name = "comboBoxType";
+            this.comboBoxType.Size = new System.Drawing.Size(144, 21);
+            this.comboBoxType.TabIndex = 7;
+            this.comboBoxType.SelectedIndexChanged += new System.EventHandler(this.comboBoxType_SelectedIndexChanged);
             // 
-            // textBox6
+            // textBoxConfirm
             // 
-            this.textBox6.Location = new System.Drawing.Point(140, 208);
-            this.textBox6.Name = "textBox6";
-            this.textBox6.Size = new System.Drawing.Size(144, 20);
-            this.textBox6.TabIndex = 6;
-            this.textBox6.UseSystemPasswordChar = true;
+            this.textBoxConfirm.Location = new System.Drawing.Point(140, 208);
+            this.textBoxConfirm.Name = "textBoxConfirm";
+            this.textBoxConfirm.Size = new System.Drawing.Size(144, 20);
+            this.textBoxConfirm.TabIndex = 6;
+            this.textBoxConfirm.UseSystemPasswordChar = true;
+            this.textBoxConfirm.TextChanged += new System.EventHandler(this.textBoxConfirm_TextChanged);
             // 
             // label7
             // 
@@ -131,20 +147,22 @@ namespace Train_Travel.Forms
             this.label6.TabIndex = 11;
             this.label6.Text = "Пароль";
             // 
-            // textBox5
+            // textBoxPassword
             // 
-            this.textBox5.Location = new System.Drawing.Point(140, 182);
-            this.textBox5.Name = "textBox5";
-            this.textBox5.Size = new System.Drawing.Size(144, 20);
-            this.textBox5.TabIndex = 5;
-            this.textBox5.UseSystemPasswordChar = true;
+            this.textBoxPassword.Location = new System.Drawing.Point(140, 182);
+            this.textBoxPassword.Name = "textBoxPassword";
+            this.textBoxPassword.Size = new System.Drawing.Size(144, 20);
+            this.textBoxPassword.TabIndex = 5;
+            this.textBoxPassword.UseSystemPasswordChar = true;
+            this.textBoxPassword.TextChanged += new System.EventHandler(this.textBoxPassword_TextChanged);
             // 
-            // textBox4
+            // textBoxEmail
             // 
-            this.textBox4.Location = new System.Drawing.Point(123, 144);
-            this.textBox4.Name = "textBox4";
-            this.textBox4.Size = new System.Drawing.Size(161, 20);
-            this.textBox4.TabIndex = 4;
+            this.textBoxEmail.Location = new System.Drawing.Point(123, 144);
+            this.textBoxEmail.Name = "textBoxEmail";
+            this.textBoxEmail.Size = new System.Drawing.Size(161, 20);
+            this.textBoxEmail.TabIndex = 4;
+            this.textBoxEmail.TextChanged += new System.EventHandler(this.textBoxEmail_TextChanged);
             // 
             // label5
             // 
@@ -173,19 +191,21 @@ namespace Train_Travel.Forms
             this.label3.TabIndex = 6;
             this.label3.Text = "Телефон";
             // 
-            // textBox3
+            // textBoxMiddleName
             // 
-            this.textBox3.Location = new System.Drawing.Point(123, 92);
-            this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(161, 20);
-            this.textBox3.TabIndex = 2;
+            this.textBoxMiddleName.Location = new System.Drawing.Point(123, 92);
+            this.textBoxMiddleName.Name = "textBoxMiddleName";
+            this.textBoxMiddleName.Size = new System.Drawing.Size(161, 20);
+            this.textBoxMiddleName.TabIndex = 2;
+            this.textBoxMiddleName.TextChanged += new System.EventHandler(this.textBoxMiddleName_TextChanged);
             // 
-            // textBox2
+            // textBoxName
             // 
-            this.textBox2.Location = new System.Drawing.Point(123, 66);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(161, 20);
-            this.textBox2.TabIndex = 1;
+            this.textBoxName.Location = new System.Drawing.Point(123, 66);
+            this.textBoxName.Name = "textBoxName";
+            this.textBoxName.Size = new System.Drawing.Size(161, 20);
+            this.textBoxName.TabIndex = 1;
+            this.textBoxName.TextChanged += new System.EventHandler(this.textBoxName_TextChanged);
             // 
             // label2
             // 
@@ -196,20 +216,22 @@ namespace Train_Travel.Forms
             this.label2.TabIndex = 3;
             this.label2.Text = "Имя";
             // 
-            // maskedTextBox1
+            // maskedTextBoxPhone
             // 
-            this.maskedTextBox1.Location = new System.Drawing.Point(123, 118);
-            this.maskedTextBox1.Mask = "+375(00)000-00-00";
-            this.maskedTextBox1.Name = "maskedTextBox1";
-            this.maskedTextBox1.Size = new System.Drawing.Size(161, 20);
-            this.maskedTextBox1.TabIndex = 3;
+            this.maskedTextBoxPhone.Location = new System.Drawing.Point(123, 118);
+            this.maskedTextBoxPhone.Mask = "+375(00)000-00-00";
+            this.maskedTextBoxPhone.Name = "maskedTextBoxPhone";
+            this.maskedTextBoxPhone.Size = new System.Drawing.Size(161, 20);
+            this.maskedTextBoxPhone.TabIndex = 3;
+            this.maskedTextBoxPhone.TextChanged += new System.EventHandler(this.maskedTextBoxPhone_TextChanged);
             // 
-            // textBox1
+            // textBoxLastName
             // 
-            this.textBox1.Location = new System.Drawing.Point(123, 40);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(161, 20);
-            this.textBox1.TabIndex = 0;
+            this.textBoxLastName.Location = new System.Drawing.Point(123, 40);
+            this.textBoxLastName.Name = "textBoxLastName";
+            this.textBoxLastName.Size = new System.Drawing.Size(161, 20);
+            this.textBoxLastName.TabIndex = 0;
+            this.textBoxLastName.TextChanged += new System.EventHandler(this.textBoxLastName_TextChanged);
             // 
             // label1
             // 
@@ -230,6 +252,7 @@ namespace Train_Travel.Forms
             this.Name = "Registration";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Train Travel регистрация";
+            this.Load += new System.EventHandler(this.Registration_Load);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             this.ResumeLayout(false);
@@ -239,22 +262,23 @@ namespace Train_Travel.Forms
         #endregion
 
         private System.Windows.Forms.GroupBox groupBox1;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox textBoxLastName;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.MaskedTextBox maskedTextBox1;
+        private System.Windows.Forms.MaskedTextBox maskedTextBoxPhone;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.TextBox textBox3;
-        private System.Windows.Forms.TextBox textBox2;
+        private System.Windows.Forms.TextBox textBoxMiddleName;
+        private System.Windows.Forms.TextBox textBoxName;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.TextBox textBox4;
+        private System.Windows.Forms.TextBox textBoxEmail;
         private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.TextBox textBox6;
+        private System.Windows.Forms.TextBox textBoxConfirm;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.TextBox textBox5;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.TextBox textBoxPassword;
+        private System.Windows.Forms.Button buttonRegister;
         private System.Windows.Forms.Label label8;
-        private System.Windows.Forms.ComboBox comboBox1;
+        private System.Windows.Forms.ComboBox comboBoxType;
+        private System.Windows.Forms.Label labelErrorReg;
     }
 }

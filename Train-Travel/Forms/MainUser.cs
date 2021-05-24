@@ -12,7 +12,8 @@ namespace Train_Travel
 {
     public partial class mainUser : Form
     {
-        public mainUser()
+
+        public mainUser(int userId)
         {
             InitializeComponent();
         }

@@ -12,7 +12,7 @@ namespace Train_Travel.Forms
 {
     public partial class MainAdmin : Form
     {
-        public MainAdmin()
+        public MainAdmin(int userId)
         {
             InitializeComponent();
         }
