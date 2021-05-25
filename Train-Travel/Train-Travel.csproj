@@ -85,6 +85,8 @@
     <Compile Include="Forms\Registration.Designer.cs">
       <DependentUpon>Registration.cs</DependentUpon>
     </Compile>
+    <Compile Include="Model\User.cs" />
+    <Compile Include="Model\Voyage.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="Forms\Login.resx">
@@ -118,9 +120,7 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Model\" />
-  </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
     <Content Include="Database.mdf">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
