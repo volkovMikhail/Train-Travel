@@ -12,3 +12,4 @@ C:\Users\VMICH\Desktop\Train-Travel\Train-Travel\obj\Debug\Train-Travel.csproj.G
 C:\Users\VMICH\Desktop\Train-Travel\Train-Travel\obj\Debug\Train-Travel.csproj.CoreCompileInputs.cache
 C:\Users\VMICH\Desktop\Train-Travel\Train-Travel\obj\Debug\Train-Travel.exe
 C:\Users\VMICH\Desktop\Train-Travel\Train-Travel\obj\Debug\Train-Travel.pdb
+C:\Users\VMICH\Desktop\Train-Travel\Train-Travel\obj\Debug\Train_Travel.Forms.MainAdmin.resources

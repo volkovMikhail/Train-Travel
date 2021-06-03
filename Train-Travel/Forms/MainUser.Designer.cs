@@ -61,6 +61,22 @@ namespace Train_Travel
             this.comboBoxTo = new System.Windows.Forms.ComboBox();
             this.tabPage2 = new System.Windows.Forms.TabPage();
             this.splitContainer2 = new System.Windows.Forms.SplitContainer();
+            this.labelSum = new System.Windows.Forms.Label();
+            this.label12 = new System.Windows.Forms.Label();
+            this.label11 = new System.Windows.Forms.Label();
+            this.groupBox5 = new System.Windows.Forms.GroupBox();
+            this.labelEmail = new System.Windows.Forms.Label();
+            this.labelPhone = new System.Windows.Forms.Label();
+            this.labelId = new System.Windows.Forms.Label();
+            this.labelMiddle = new System.Windows.Forms.Label();
+            this.labelFam = new System.Windows.Forms.Label();
+            this.labelname = new System.Windows.Forms.Label();
+            this.label9 = new System.Windows.Forms.Label();
+            this.label7 = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
+            this.label13 = new System.Windows.Forms.Label();
+            this.label10 = new System.Windows.Forms.Label();
+            this.label8 = new System.Windows.Forms.Label();
             this.listViewOrders = new System.Windows.Forms.ListView();
             this.columnHeader9 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader10 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
@@ -70,22 +86,6 @@ namespace Train_Travel
             this.columnHeader14 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader16 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader17 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.groupBox5 = new System.Windows.Forms.GroupBox();
-            this.label8 = new System.Windows.Forms.Label();
-            this.label10 = new System.Windows.Forms.Label();
-            this.label13 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
-            this.label7 = new System.Windows.Forms.Label();
-            this.label9 = new System.Windows.Forms.Label();
-            this.label11 = new System.Windows.Forms.Label();
-            this.labelname = new System.Windows.Forms.Label();
-            this.labelFam = new System.Windows.Forms.Label();
-            this.labelMiddle = new System.Windows.Forms.Label();
-            this.labelId = new System.Windows.Forms.Label();
-            this.labelPhone = new System.Windows.Forms.Label();
-            this.labelEmail = new System.Windows.Forms.Label();
-            this.label12 = new System.Windows.Forms.Label();
-            this.labelSum = new System.Windows.Forms.Label();
             this.contextMenuStrip2 = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.вернутьToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.печатьToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -413,6 +413,162 @@ namespace Train_Travel
             this.splitContainer2.SplitterDistance = 168;
             this.splitContainer2.TabIndex = 0;
             // 
+            // labelSum
+            // 
+            this.labelSum.AutoSize = true;
+            this.labelSum.Location = new System.Drawing.Point(128, 123);
+            this.labelSum.Name = "labelSum";
+            this.labelSum.Size = new System.Drawing.Size(13, 13);
+            this.labelSum.TabIndex = 16;
+            this.labelSum.Text = "_";
+            // 
+            // label12
+            // 
+            this.label12.AutoSize = true;
+            this.label12.Location = new System.Drawing.Point(5, 123);
+            this.label12.Name = "label12";
+            this.label12.Size = new System.Drawing.Size(117, 13);
+            this.label12.TabIndex = 15;
+            this.label12.Text = "Сумма цены билетов:";
+            // 
+            // label11
+            // 
+            this.label11.AutoSize = true;
+            this.label11.Location = new System.Drawing.Point(5, 152);
+            this.label11.Name = "label11";
+            this.label11.Size = new System.Drawing.Size(131, 13);
+            this.label11.TabIndex = 9;
+            this.label11.Text = "Преобретённые билеты:";
+            // 
+            // groupBox5
+            // 
+            this.groupBox5.Controls.Add(this.labelEmail);
+            this.groupBox5.Controls.Add(this.labelPhone);
+            this.groupBox5.Controls.Add(this.labelId);
+            this.groupBox5.Controls.Add(this.labelMiddle);
+            this.groupBox5.Controls.Add(this.labelFam);
+            this.groupBox5.Controls.Add(this.labelname);
+            this.groupBox5.Controls.Add(this.label9);
+            this.groupBox5.Controls.Add(this.label7);
+            this.groupBox5.Controls.Add(this.label2);
+            this.groupBox5.Controls.Add(this.label13);
+            this.groupBox5.Controls.Add(this.label10);
+            this.groupBox5.Controls.Add(this.label8);
+            this.groupBox5.Location = new System.Drawing.Point(311, 3);
+            this.groupBox5.Name = "groupBox5";
+            this.groupBox5.Size = new System.Drawing.Size(554, 162);
+            this.groupBox5.TabIndex = 0;
+            this.groupBox5.TabStop = false;
+            this.groupBox5.Text = "Данные";
+            // 
+            // labelEmail
+            // 
+            this.labelEmail.AutoSize = true;
+            this.labelEmail.Location = new System.Drawing.Point(363, 120);
+            this.labelEmail.Name = "labelEmail";
+            this.labelEmail.Size = new System.Drawing.Size(10, 13);
+            this.labelEmail.TabIndex = 14;
+            this.labelEmail.Text = "-";
+            // 
+            // labelPhone
+            // 
+            this.labelPhone.AutoSize = true;
+            this.labelPhone.Location = new System.Drawing.Point(363, 77);
+            this.labelPhone.Name = "labelPhone";
+            this.labelPhone.Size = new System.Drawing.Size(10, 13);
+            this.labelPhone.TabIndex = 13;
+            this.labelPhone.Text = "-";
+            // 
+            // labelId
+            // 
+            this.labelId.AutoSize = true;
+            this.labelId.Location = new System.Drawing.Point(363, 36);
+            this.labelId.Name = "labelId";
+            this.labelId.Size = new System.Drawing.Size(10, 13);
+            this.labelId.TabIndex = 12;
+            this.labelId.Text = "-";
+            // 
+            // labelMiddle
+            // 
+            this.labelMiddle.AutoSize = true;
+            this.labelMiddle.Location = new System.Drawing.Point(102, 120);
+            this.labelMiddle.Name = "labelMiddle";
+            this.labelMiddle.Size = new System.Drawing.Size(10, 13);
+            this.labelMiddle.TabIndex = 11;
+            this.labelMiddle.Text = "-";
+            // 
+            // labelFam
+            // 
+            this.labelFam.AutoSize = true;
+            this.labelFam.Location = new System.Drawing.Point(102, 77);
+            this.labelFam.Name = "labelFam";
+            this.labelFam.Size = new System.Drawing.Size(10, 13);
+            this.labelFam.TabIndex = 10;
+            this.labelFam.Text = "-";
+            // 
+            // labelname
+            // 
+            this.labelname.AutoSize = true;
+            this.labelname.Location = new System.Drawing.Point(102, 36);
+            this.labelname.Name = "labelname";
+            this.labelname.Size = new System.Drawing.Size(10, 13);
+            this.labelname.TabIndex = 9;
+            this.labelname.Text = "-";
+            // 
+            // label9
+            // 
+            this.label9.AutoSize = true;
+            this.label9.Location = new System.Drawing.Point(302, 120);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(35, 13);
+            this.label9.TabIndex = 8;
+            this.label9.Text = "Email:";
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Location = new System.Drawing.Point(302, 77);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(55, 13);
+            this.label7.TabIndex = 7;
+            this.label7.Text = "Телефон:";
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(37, 120);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(57, 13);
+            this.label2.TabIndex = 6;
+            this.label2.Text = "Отчество:";
+            // 
+            // label13
+            // 
+            this.label13.AutoSize = true;
+            this.label13.Location = new System.Drawing.Point(302, 36);
+            this.label13.Name = "label13";
+            this.label13.Size = new System.Drawing.Size(21, 13);
+            this.label13.TabIndex = 5;
+            this.label13.Text = "ID:";
+            // 
+            // label10
+            // 
+            this.label10.AutoSize = true;
+            this.label10.Location = new System.Drawing.Point(37, 36);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(32, 13);
+            this.label10.TabIndex = 2;
+            this.label10.Text = "Имя:";
+            // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.Location = new System.Drawing.Point(37, 77);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(59, 13);
+            this.label8.TabIndex = 0;
+            this.label8.Text = "Фамилия:";
+            // 
             // listViewOrders
             // 
             this.listViewOrders.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
@@ -476,181 +632,25 @@ namespace Train_Travel
             this.columnHeader17.Text = "Дата покупки";
             this.columnHeader17.Width = 82;
             // 
-            // groupBox5
-            // 
-            this.groupBox5.Controls.Add(this.labelEmail);
-            this.groupBox5.Controls.Add(this.labelPhone);
-            this.groupBox5.Controls.Add(this.labelId);
-            this.groupBox5.Controls.Add(this.labelMiddle);
-            this.groupBox5.Controls.Add(this.labelFam);
-            this.groupBox5.Controls.Add(this.labelname);
-            this.groupBox5.Controls.Add(this.label9);
-            this.groupBox5.Controls.Add(this.label7);
-            this.groupBox5.Controls.Add(this.label2);
-            this.groupBox5.Controls.Add(this.label13);
-            this.groupBox5.Controls.Add(this.label10);
-            this.groupBox5.Controls.Add(this.label8);
-            this.groupBox5.Location = new System.Drawing.Point(311, 3);
-            this.groupBox5.Name = "groupBox5";
-            this.groupBox5.Size = new System.Drawing.Size(554, 162);
-            this.groupBox5.TabIndex = 0;
-            this.groupBox5.TabStop = false;
-            this.groupBox5.Text = "Данные";
-            // 
-            // label8
-            // 
-            this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(37, 77);
-            this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(59, 13);
-            this.label8.TabIndex = 0;
-            this.label8.Text = "Фамилия:";
-            // 
-            // label10
-            // 
-            this.label10.AutoSize = true;
-            this.label10.Location = new System.Drawing.Point(37, 36);
-            this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(32, 13);
-            this.label10.TabIndex = 2;
-            this.label10.Text = "Имя:";
-            // 
-            // label13
-            // 
-            this.label13.AutoSize = true;
-            this.label13.Location = new System.Drawing.Point(302, 36);
-            this.label13.Name = "label13";
-            this.label13.Size = new System.Drawing.Size(21, 13);
-            this.label13.TabIndex = 5;
-            this.label13.Text = "ID:";
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(37, 120);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(57, 13);
-            this.label2.TabIndex = 6;
-            this.label2.Text = "Отчество:";
-            // 
-            // label7
-            // 
-            this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(302, 77);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(55, 13);
-            this.label7.TabIndex = 7;
-            this.label7.Text = "Телефон:";
-            // 
-            // label9
-            // 
-            this.label9.AutoSize = true;
-            this.label9.Location = new System.Drawing.Point(302, 120);
-            this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(35, 13);
-            this.label9.TabIndex = 8;
-            this.label9.Text = "Email:";
-            // 
-            // label11
-            // 
-            this.label11.AutoSize = true;
-            this.label11.Location = new System.Drawing.Point(5, 152);
-            this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(131, 13);
-            this.label11.TabIndex = 9;
-            this.label11.Text = "Преобретённые билеты:";
-            // 
-            // labelname
-            // 
-            this.labelname.AutoSize = true;
-            this.labelname.Location = new System.Drawing.Point(102, 36);
-            this.labelname.Name = "labelname";
-            this.labelname.Size = new System.Drawing.Size(10, 13);
-            this.labelname.TabIndex = 9;
-            this.labelname.Text = "-";
-            // 
-            // labelFam
-            // 
-            this.labelFam.AutoSize = true;
-            this.labelFam.Location = new System.Drawing.Point(102, 77);
-            this.labelFam.Name = "labelFam";
-            this.labelFam.Size = new System.Drawing.Size(10, 13);
-            this.labelFam.TabIndex = 10;
-            this.labelFam.Text = "-";
-            // 
-            // labelMiddle
-            // 
-            this.labelMiddle.AutoSize = true;
-            this.labelMiddle.Location = new System.Drawing.Point(102, 120);
-            this.labelMiddle.Name = "labelMiddle";
-            this.labelMiddle.Size = new System.Drawing.Size(10, 13);
-            this.labelMiddle.TabIndex = 11;
-            this.labelMiddle.Text = "-";
-            // 
-            // labelId
-            // 
-            this.labelId.AutoSize = true;
-            this.labelId.Location = new System.Drawing.Point(363, 36);
-            this.labelId.Name = "labelId";
-            this.labelId.Size = new System.Drawing.Size(10, 13);
-            this.labelId.TabIndex = 12;
-            this.labelId.Text = "-";
-            // 
-            // labelPhone
-            // 
-            this.labelPhone.AutoSize = true;
-            this.labelPhone.Location = new System.Drawing.Point(363, 77);
-            this.labelPhone.Name = "labelPhone";
-            this.labelPhone.Size = new System.Drawing.Size(10, 13);
-            this.labelPhone.TabIndex = 13;
-            this.labelPhone.Text = "-";
-            // 
-            // labelEmail
-            // 
-            this.labelEmail.AutoSize = true;
-            this.labelEmail.Location = new System.Drawing.Point(363, 120);
-            this.labelEmail.Name = "labelEmail";
-            this.labelEmail.Size = new System.Drawing.Size(10, 13);
-            this.labelEmail.TabIndex = 14;
-            this.labelEmail.Text = "-";
-            // 
-            // label12
-            // 
-            this.label12.AutoSize = true;
-            this.label12.Location = new System.Drawing.Point(5, 123);
-            this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(117, 13);
-            this.label12.TabIndex = 15;
-            this.label12.Text = "Сумма цены билетов:";
-            // 
-            // labelSum
-            // 
-            this.labelSum.AutoSize = true;
-            this.labelSum.Location = new System.Drawing.Point(128, 123);
-            this.labelSum.Name = "labelSum";
-            this.labelSum.Size = new System.Drawing.Size(13, 13);
-            this.labelSum.TabIndex = 16;
-            this.labelSum.Text = "_";
-            // 
             // contextMenuStrip2
             // 
             this.contextMenuStrip2.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.вернутьToolStripMenuItem,
             this.печатьToolStripMenuItem});
             this.contextMenuStrip2.Name = "contextMenuStrip2";
-            this.contextMenuStrip2.Size = new System.Drawing.Size(181, 70);
+            this.contextMenuStrip2.Size = new System.Drawing.Size(119, 48);
             // 
             // вернутьToolStripMenuItem
             // 
             this.вернутьToolStripMenuItem.Name = "вернутьToolStripMenuItem";
-            this.вернутьToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.вернутьToolStripMenuItem.Size = new System.Drawing.Size(118, 22);
             this.вернутьToolStripMenuItem.Text = "Вернуть";
             this.вернутьToolStripMenuItem.Click += new System.EventHandler(this.вернутьToolStripMenuItem_Click);
             // 
             // печатьToolStripMenuItem
             // 
             this.печатьToolStripMenuItem.Name = "печатьToolStripMenuItem";
-            this.печатьToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.печатьToolStripMenuItem.Size = new System.Drawing.Size(118, 22);
             this.печатьToolStripMenuItem.Text = "Печать";
             this.печатьToolStripMenuItem.Click += new System.EventHandler(this.печатьToolStripMenuItem_Click);
             // 
@@ -660,6 +660,7 @@ namespace Train_Travel
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(884, 533);
             this.Controls.Add(this.tabControl1);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.MaximizeBox = false;
             this.Name = "mainUser";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
