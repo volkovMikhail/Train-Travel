@@ -200,7 +200,7 @@ namespace Train_Travel
             // 
             // columnHeader4
             // 
-            this.columnHeader4.Text = "Прибытие              ";
+            this.columnHeader4.Text = "Прибытие                 ";
             this.columnHeader4.Width = 106;
             // 
             // columnHeader5

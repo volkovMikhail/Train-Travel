@@ -95,7 +95,7 @@ namespace Train_Travel.Forms
                         Convert.ToString(dataReader[8]),
                         Convert.ToDateTime(dataReader[3]).ToShortDateString(),
                         Convert.ToString(dataReader[4]),
-                        Convert.ToDateTime(dataReader[5]).ToShortDateString(),
+                        Convert.ToDateTime(dataReader[5]).ToString(),
                         Convert.ToString(dataReader[6]),
                         Convert.ToString(dataReader[7])
                     });
@@ -152,7 +152,8 @@ namespace Train_Travel.Forms
 
         private void button1_Click(object sender, EventArgs e)
         {
-
+            addRoute addRoute = new addRoute();
+            addRoute.ShowDialog();
             outputToCombo();
             outputFromVoyages();
         }
@@ -171,6 +172,39 @@ namespace Train_Travel.Forms
             {
                 if (e.KeyChar != (char)Keys.Back) e.Handled = true;
             }
+        }
+
+        private void удалитьРейсToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (listViewVoyages.SelectedIndices.Count > 0)
+            {
+                SqlCommand cmd = new SqlCommand($"DELETE FROM Voyage WHERE Id = {Convert.ToInt32(listViewVoyages.SelectedItems[0].Tag)}", conn);
+                try
+                {
+                    conn.Open();
+                    cmd.ExecuteNonQuery();
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+                finally
+                {
+                    conn.Close();
+                    outputFromVoyages();
+                    outputToCombo();
+                }
+            }
+            else
+            {
+                MessageBox.Show("Вы не выбрали рейс", "Info", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
+            listViewVoyages.SelectedItems.Clear();
+        }
+
+        private void удалитьToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

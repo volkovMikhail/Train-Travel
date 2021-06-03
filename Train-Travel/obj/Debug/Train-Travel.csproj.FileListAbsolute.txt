@@ -13,3 +13,4 @@ C:\Users\VMICH\Desktop\Train-Travel\Train-Travel\obj\Debug\Train-Travel.csproj.C
 C:\Users\VMICH\Desktop\Train-Travel\Train-Travel\obj\Debug\Train-Travel.exe
 C:\Users\VMICH\Desktop\Train-Travel\Train-Travel\obj\Debug\Train-Travel.pdb
 C:\Users\VMICH\Desktop\Train-Travel\Train-Travel\obj\Debug\Train_Travel.Forms.MainAdmin.resources
+C:\Users\VMICH\Desktop\Train-Travel\Train-Travel\obj\Debug\Train_Travel.Forms.addRoute.resources

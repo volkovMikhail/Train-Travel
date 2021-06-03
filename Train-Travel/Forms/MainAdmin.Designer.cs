@@ -29,12 +29,9 @@ namespace Train_Travel.Forms
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
-            this.tabPage2 = new System.Windows.Forms.TabPage();
-            this.tabPage3 = new System.Windows.Forms.TabPage();
-            this.tabPage4 = new System.Windows.Forms.TabPage();
-            this.tabPage5 = new System.Windows.Forms.TabPage();
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
             this.listViewVoyages = new System.Windows.Forms.ListView();
             this.columnHeader1 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
@@ -45,7 +42,10 @@ namespace Train_Travel.Forms
             this.columnHeader4 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader5 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader6 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.contextMenuStripVoyages = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.удалитьРейсToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.button1 = new System.Windows.Forms.Button();
             this.groupBox4 = new System.Windows.Forms.GroupBox();
             this.label4 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
@@ -60,17 +60,60 @@ namespace Train_Travel.Forms
             this.label5 = new System.Windows.Forms.Label();
             this.comboBoxFrom = new System.Windows.Forms.ComboBox();
             this.comboBoxTo = new System.Windows.Forms.ComboBox();
-            this.button1 = new System.Windows.Forms.Button();
+            this.tabPage2 = new System.Windows.Forms.TabPage();
+            this.splitContainer2 = new System.Windows.Forms.SplitContainer();
+            this.tabPage3 = new System.Windows.Forms.TabPage();
+            this.tabPage4 = new System.Windows.Forms.TabPage();
+            this.tabPage5 = new System.Windows.Forms.TabPage();
+            this.listViewWorkers = new System.Windows.Forms.ListView();
+            this.contextMenuStripWorkers = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.columnHeader9 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnHeader10 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnHeader11 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnHeader12 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnHeader13 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnHeader14 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnHeader15 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnHeader16 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnHeader17 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnHeader18 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.groupBox5 = new System.Windows.Forms.GroupBox();
+            this.comboBox1 = new System.Windows.Forms.ComboBox();
+            this.label2 = new System.Windows.Forms.Label();
+            this.label7 = new System.Windows.Forms.Label();
+            this.comboBox2 = new System.Windows.Forms.ComboBox();
+            this.groupBox6 = new System.Windows.Forms.GroupBox();
+            this.maskedTextBox2 = new System.Windows.Forms.MaskedTextBox();
+            this.label8 = new System.Windows.Forms.Label();
+            this.groupBox7 = new System.Windows.Forms.GroupBox();
+            this.checkBox2 = new System.Windows.Forms.CheckBox();
+            this.checkBox3 = new System.Windows.Forms.CheckBox();
+            this.label9 = new System.Windows.Forms.Label();
+            this.button2 = new System.Windows.Forms.Button();
+            this.отправитьНаМедосмотрToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.редактироватьToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.удалитьToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
             this.splitContainer1.Panel2.SuspendLayout();
             this.splitContainer1.SuspendLayout();
+            this.contextMenuStripVoyages.SuspendLayout();
             this.groupBox1.SuspendLayout();
             this.groupBox4.SuspendLayout();
             this.groupBox3.SuspendLayout();
             this.groupBox2.SuspendLayout();
+            this.tabPage2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.splitContainer2)).BeginInit();
+            this.splitContainer2.Panel1.SuspendLayout();
+            this.splitContainer2.Panel2.SuspendLayout();
+            this.splitContainer2.SuspendLayout();
+            this.contextMenuStripWorkers.SuspendLayout();
+            this.groupBox5.SuspendLayout();
+            this.groupBox6.SuspendLayout();
+            this.groupBox7.SuspendLayout();
             this.SuspendLayout();
             // 
             // tabControl1
@@ -97,43 +140,6 @@ namespace Train_Travel.Forms
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "Рейсы";
             this.tabPage1.UseVisualStyleBackColor = true;
-            // 
-            // tabPage2
-            // 
-            this.tabPage2.Location = new System.Drawing.Point(4, 22);
-            this.tabPage2.Name = "tabPage2";
-            this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage2.Size = new System.Drawing.Size(876, 507);
-            this.tabPage2.TabIndex = 1;
-            this.tabPage2.Text = "Кадровый состав";
-            this.tabPage2.UseVisualStyleBackColor = true;
-            // 
-            // tabPage3
-            // 
-            this.tabPage3.Location = new System.Drawing.Point(4, 22);
-            this.tabPage3.Name = "tabPage3";
-            this.tabPage3.Size = new System.Drawing.Size(876, 507);
-            this.tabPage3.TabIndex = 2;
-            this.tabPage3.Text = "Продажа билетов";
-            this.tabPage3.UseVisualStyleBackColor = true;
-            // 
-            // tabPage4
-            // 
-            this.tabPage4.Location = new System.Drawing.Point(4, 22);
-            this.tabPage4.Name = "tabPage4";
-            this.tabPage4.Size = new System.Drawing.Size(876, 507);
-            this.tabPage4.TabIndex = 3;
-            this.tabPage4.Text = "Локомотивы";
-            this.tabPage4.UseVisualStyleBackColor = true;
-            // 
-            // tabPage5
-            // 
-            this.tabPage5.Location = new System.Drawing.Point(4, 22);
-            this.tabPage5.Name = "tabPage5";
-            this.tabPage5.Size = new System.Drawing.Size(876, 507);
-            this.tabPage5.TabIndex = 4;
-            this.tabPage5.Text = "Пассажиры";
-            this.tabPage5.UseVisualStyleBackColor = true;
             // 
             // splitContainer1
             // 
@@ -164,6 +170,7 @@ namespace Train_Travel.Forms
             this.columnHeader4,
             this.columnHeader5,
             this.columnHeader6});
+            this.listViewVoyages.ContextMenuStrip = this.contextMenuStripVoyages;
             this.listViewVoyages.Dock = System.Windows.Forms.DockStyle.Fill;
             this.listViewVoyages.FullRowSelect = true;
             this.listViewVoyages.GridLines = true;
@@ -203,7 +210,7 @@ namespace Train_Travel.Forms
             // 
             // columnHeader4
             // 
-            this.columnHeader4.Text = "Прибытие              ";
+            this.columnHeader4.Text = "Прибытие                 ";
             this.columnHeader4.Width = 106;
             // 
             // columnHeader5
@@ -215,6 +222,20 @@ namespace Train_Travel.Forms
             // 
             this.columnHeader6.Text = "Цена";
             this.columnHeader6.Width = 79;
+            // 
+            // contextMenuStripVoyages
+            // 
+            this.contextMenuStripVoyages.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.удалитьРейсToolStripMenuItem});
+            this.contextMenuStripVoyages.Name = "contextMenuStripVoyages";
+            this.contextMenuStripVoyages.Size = new System.Drawing.Size(148, 26);
+            // 
+            // удалитьРейсToolStripMenuItem
+            // 
+            this.удалитьРейсToolStripMenuItem.Name = "удалитьРейсToolStripMenuItem";
+            this.удалитьРейсToolStripMenuItem.Size = new System.Drawing.Size(147, 22);
+            this.удалитьРейсToolStripMenuItem.Text = "Удалить рейс";
+            this.удалитьРейсToolStripMenuItem.Click += new System.EventHandler(this.удалитьРейсToolStripMenuItem_Click);
             // 
             // groupBox1
             // 
@@ -228,6 +249,16 @@ namespace Train_Travel.Forms
             this.groupBox1.TabIndex = 0;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "ы";
+            // 
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(711, 85);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(145, 24);
+            this.button1.TabIndex = 11;
+            this.button1.Text = "Добавить рейс";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // groupBox4
             // 
@@ -370,15 +401,289 @@ namespace Train_Travel.Forms
             this.comboBoxTo.TabIndex = 1;
             this.comboBoxTo.SelectedIndexChanged += new System.EventHandler(this.comboBoxTo_SelectedIndexChanged);
             // 
-            // button1
+            // tabPage2
             // 
-            this.button1.Location = new System.Drawing.Point(711, 85);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(145, 24);
-            this.button1.TabIndex = 11;
-            this.button1.Text = "Добавить рейс";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
+            this.tabPage2.Controls.Add(this.splitContainer2);
+            this.tabPage2.Location = new System.Drawing.Point(4, 22);
+            this.tabPage2.Name = "tabPage2";
+            this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPage2.Size = new System.Drawing.Size(876, 507);
+            this.tabPage2.TabIndex = 1;
+            this.tabPage2.Text = "Кадровый состав";
+            this.tabPage2.UseVisualStyleBackColor = true;
+            // 
+            // splitContainer2
+            // 
+            this.splitContainer2.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.splitContainer2.Location = new System.Drawing.Point(3, 3);
+            this.splitContainer2.Name = "splitContainer2";
+            this.splitContainer2.Orientation = System.Windows.Forms.Orientation.Horizontal;
+            // 
+            // splitContainer2.Panel1
+            // 
+            this.splitContainer2.Panel1.Controls.Add(this.listViewWorkers);
+            // 
+            // splitContainer2.Panel2
+            // 
+            this.splitContainer2.Panel2.Controls.Add(this.button2);
+            this.splitContainer2.Panel2.Controls.Add(this.groupBox7);
+            this.splitContainer2.Panel2.Controls.Add(this.groupBox6);
+            this.splitContainer2.Panel2.Controls.Add(this.groupBox5);
+            this.splitContainer2.Size = new System.Drawing.Size(870, 501);
+            this.splitContainer2.SplitterDistance = 393;
+            this.splitContainer2.TabIndex = 0;
+            // 
+            // tabPage3
+            // 
+            this.tabPage3.Location = new System.Drawing.Point(4, 22);
+            this.tabPage3.Name = "tabPage3";
+            this.tabPage3.Size = new System.Drawing.Size(876, 507);
+            this.tabPage3.TabIndex = 2;
+            this.tabPage3.Text = "Продажа билетов";
+            this.tabPage3.UseVisualStyleBackColor = true;
+            // 
+            // tabPage4
+            // 
+            this.tabPage4.Location = new System.Drawing.Point(4, 22);
+            this.tabPage4.Name = "tabPage4";
+            this.tabPage4.Size = new System.Drawing.Size(876, 507);
+            this.tabPage4.TabIndex = 3;
+            this.tabPage4.Text = "Локомотивы";
+            this.tabPage4.UseVisualStyleBackColor = true;
+            // 
+            // tabPage5
+            // 
+            this.tabPage5.Location = new System.Drawing.Point(4, 22);
+            this.tabPage5.Name = "tabPage5";
+            this.tabPage5.Size = new System.Drawing.Size(876, 507);
+            this.tabPage5.TabIndex = 4;
+            this.tabPage5.Text = "Пассажиры";
+            this.tabPage5.UseVisualStyleBackColor = true;
+            // 
+            // listViewWorkers
+            // 
+            this.listViewWorkers.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
+            this.columnHeader9,
+            this.columnHeader10,
+            this.columnHeader11,
+            this.columnHeader12,
+            this.columnHeader13,
+            this.columnHeader14,
+            this.columnHeader15,
+            this.columnHeader16,
+            this.columnHeader17,
+            this.columnHeader18});
+            this.listViewWorkers.ContextMenuStrip = this.contextMenuStripWorkers;
+            this.listViewWorkers.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.listViewWorkers.FullRowSelect = true;
+            this.listViewWorkers.GridLines = true;
+            this.listViewWorkers.HideSelection = false;
+            this.listViewWorkers.Location = new System.Drawing.Point(0, 0);
+            this.listViewWorkers.MultiSelect = false;
+            this.listViewWorkers.Name = "listViewWorkers";
+            this.listViewWorkers.Size = new System.Drawing.Size(870, 393);
+            this.listViewWorkers.TabIndex = 0;
+            this.listViewWorkers.UseCompatibleStateImageBehavior = false;
+            this.listViewWorkers.View = System.Windows.Forms.View.Details;
+            // 
+            // contextMenuStripWorkers
+            // 
+            this.contextMenuStripWorkers.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.отправитьНаМедосмотрToolStripMenuItem,
+            this.редактироватьToolStripMenuItem,
+            this.toolStripSeparator1,
+            this.удалитьToolStripMenuItem});
+            this.contextMenuStripWorkers.Name = "contextMenuStripWorkers";
+            this.contextMenuStripWorkers.Size = new System.Drawing.Size(214, 76);
+            // 
+            // columnHeader9
+            // 
+            this.columnHeader9.Text = "Отдел";
+            // 
+            // columnHeader10
+            // 
+            this.columnHeader10.Text = "Бригада";
+            // 
+            // columnHeader11
+            // 
+            this.columnHeader11.Text = "Имя";
+            // 
+            // columnHeader12
+            // 
+            this.columnHeader12.Text = "Фамилия";
+            // 
+            // columnHeader13
+            // 
+            this.columnHeader13.Text = "Отчество";
+            // 
+            // columnHeader14
+            // 
+            this.columnHeader14.Text = "Телефон";
+            // 
+            // columnHeader15
+            // 
+            this.columnHeader15.Text = "Зарплата";
+            // 
+            // columnHeader16
+            // 
+            this.columnHeader16.Text = "Тип";
+            // 
+            // columnHeader17
+            // 
+            this.columnHeader17.Text = "Дата медосмотра";
+            // 
+            // columnHeader18
+            // 
+            this.columnHeader18.Text = "Статус медосмотра";
+            // 
+            // groupBox5
+            // 
+            this.groupBox5.Controls.Add(this.comboBox2);
+            this.groupBox5.Controls.Add(this.label7);
+            this.groupBox5.Controls.Add(this.label2);
+            this.groupBox5.Controls.Add(this.comboBox1);
+            this.groupBox5.Location = new System.Drawing.Point(5, 3);
+            this.groupBox5.Name = "groupBox5";
+            this.groupBox5.Size = new System.Drawing.Size(256, 96);
+            this.groupBox5.TabIndex = 0;
+            this.groupBox5.TabStop = false;
+            this.groupBox5.Text = "Группировка";
+            // 
+            // comboBox1
+            // 
+            this.comboBox1.FormattingEnabled = true;
+            this.comboBox1.Location = new System.Drawing.Point(103, 31);
+            this.comboBox1.Name = "comboBox1";
+            this.comboBox1.Size = new System.Drawing.Size(121, 21);
+            this.comboBox1.TabIndex = 0;
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(22, 34);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(38, 13);
+            this.label2.TabIndex = 1;
+            this.label2.Text = "Отдел";
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Location = new System.Drawing.Point(22, 61);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(49, 13);
+            this.label7.TabIndex = 2;
+            this.label7.Text = "Бригада";
+            // 
+            // comboBox2
+            // 
+            this.comboBox2.FormattingEnabled = true;
+            this.comboBox2.Location = new System.Drawing.Point(103, 58);
+            this.comboBox2.Name = "comboBox2";
+            this.comboBox2.Size = new System.Drawing.Size(121, 21);
+            this.comboBox2.TabIndex = 3;
+            // 
+            // groupBox6
+            // 
+            this.groupBox6.Controls.Add(this.label8);
+            this.groupBox6.Controls.Add(this.maskedTextBox2);
+            this.groupBox6.Location = new System.Drawing.Point(267, 3);
+            this.groupBox6.Name = "groupBox6";
+            this.groupBox6.Size = new System.Drawing.Size(212, 96);
+            this.groupBox6.TabIndex = 1;
+            this.groupBox6.TabStop = false;
+            this.groupBox6.Text = "Поиск";
+            // 
+            // maskedTextBox2
+            // 
+            this.maskedTextBox2.Location = new System.Drawing.Point(84, 31);
+            this.maskedTextBox2.Mask = "+375(00)000-00-00";
+            this.maskedTextBox2.Name = "maskedTextBox2";
+            this.maskedTextBox2.Size = new System.Drawing.Size(108, 20);
+            this.maskedTextBox2.TabIndex = 1;
+            // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.Location = new System.Drawing.Point(26, 34);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(52, 13);
+            this.label8.TabIndex = 4;
+            this.label8.Text = "Телефон";
+            // 
+            // groupBox7
+            // 
+            this.groupBox7.Controls.Add(this.label9);
+            this.groupBox7.Controls.Add(this.checkBox3);
+            this.groupBox7.Controls.Add(this.checkBox2);
+            this.groupBox7.Location = new System.Drawing.Point(485, 3);
+            this.groupBox7.Name = "groupBox7";
+            this.groupBox7.Size = new System.Drawing.Size(221, 96);
+            this.groupBox7.TabIndex = 2;
+            this.groupBox7.TabStop = false;
+            this.groupBox7.Text = "Медосмотр";
+            // 
+            // checkBox2
+            // 
+            this.checkBox2.AutoSize = true;
+            this.checkBox2.Location = new System.Drawing.Point(25, 30);
+            this.checkBox2.Name = "checkBox2";
+            this.checkBox2.Size = new System.Drawing.Size(161, 17);
+            this.checkBox2.TabIndex = 0;
+            this.checkBox2.Text = "Не прошедшие медосмотр";
+            this.checkBox2.UseVisualStyleBackColor = true;
+            // 
+            // checkBox3
+            // 
+            this.checkBox3.AutoSize = true;
+            this.checkBox3.Location = new System.Drawing.Point(25, 53);
+            this.checkBox3.Name = "checkBox3";
+            this.checkBox3.Size = new System.Drawing.Size(187, 17);
+            this.checkBox3.TabIndex = 1;
+            this.checkBox3.Text = "Необходимо пройти медосмотр";
+            this.checkBox3.UseVisualStyleBackColor = true;
+            // 
+            // label9
+            // 
+            this.label9.AutoSize = true;
+            this.label9.Location = new System.Drawing.Point(41, 73);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(69, 13);
+            this.label9.TabIndex = 5;
+            this.label9.Text = "(1 раз в год)";
+            // 
+            // button2
+            // 
+            this.button2.Location = new System.Drawing.Point(712, 76);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(153, 23);
+            this.button2.TabIndex = 3;
+            this.button2.Text = "Добавить работника";
+            this.button2.UseVisualStyleBackColor = true;
+            // 
+            // отправитьНаМедосмотрToolStripMenuItem
+            // 
+            this.отправитьНаМедосмотрToolStripMenuItem.Name = "отправитьНаМедосмотрToolStripMenuItem";
+            this.отправитьНаМедосмотрToolStripMenuItem.Size = new System.Drawing.Size(213, 22);
+            this.отправитьНаМедосмотрToolStripMenuItem.Text = "Отправить на медосмотр";
+            // 
+            // редактироватьToolStripMenuItem
+            // 
+            this.редактироватьToolStripMenuItem.Name = "редактироватьToolStripMenuItem";
+            this.редактироватьToolStripMenuItem.Size = new System.Drawing.Size(213, 22);
+            this.редактироватьToolStripMenuItem.Text = "Редактировать";
+            // 
+            // удалитьToolStripMenuItem
+            // 
+            this.удалитьToolStripMenuItem.Name = "удалитьToolStripMenuItem";
+            this.удалитьToolStripMenuItem.Size = new System.Drawing.Size(213, 22);
+            this.удалитьToolStripMenuItem.Text = "Удалить работника";
+            this.удалитьToolStripMenuItem.Click += new System.EventHandler(this.удалитьToolStripMenuItem_Click);
+            // 
+            // toolStripSeparator1
+            // 
+            this.toolStripSeparator1.Name = "toolStripSeparator1";
+            this.toolStripSeparator1.Size = new System.Drawing.Size(210, 6);
             // 
             // MainAdmin
             // 
@@ -398,6 +703,7 @@ namespace Train_Travel.Forms
             this.splitContainer1.Panel2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).EndInit();
             this.splitContainer1.ResumeLayout(false);
+            this.contextMenuStripVoyages.ResumeLayout(false);
             this.groupBox1.ResumeLayout(false);
             this.groupBox4.ResumeLayout(false);
             this.groupBox4.PerformLayout();
@@ -405,6 +711,18 @@ namespace Train_Travel.Forms
             this.groupBox3.PerformLayout();
             this.groupBox2.ResumeLayout(false);
             this.groupBox2.PerformLayout();
+            this.tabPage2.ResumeLayout(false);
+            this.splitContainer2.Panel1.ResumeLayout(false);
+            this.splitContainer2.Panel2.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.splitContainer2)).EndInit();
+            this.splitContainer2.ResumeLayout(false);
+            this.contextMenuStripWorkers.ResumeLayout(false);
+            this.groupBox5.ResumeLayout(false);
+            this.groupBox5.PerformLayout();
+            this.groupBox6.ResumeLayout(false);
+            this.groupBox6.PerformLayout();
+            this.groupBox7.ResumeLayout(false);
+            this.groupBox7.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -443,5 +761,37 @@ namespace Train_Travel.Forms
         private System.Windows.Forms.ComboBox comboBoxFrom;
         private System.Windows.Forms.ComboBox comboBoxTo;
         private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.ContextMenuStrip contextMenuStripVoyages;
+        private System.Windows.Forms.ToolStripMenuItem удалитьРейсToolStripMenuItem;
+        private System.Windows.Forms.SplitContainer splitContainer2;
+        private System.Windows.Forms.ListView listViewWorkers;
+        private System.Windows.Forms.ColumnHeader columnHeader9;
+        private System.Windows.Forms.ColumnHeader columnHeader10;
+        private System.Windows.Forms.ColumnHeader columnHeader11;
+        private System.Windows.Forms.ColumnHeader columnHeader12;
+        private System.Windows.Forms.ColumnHeader columnHeader13;
+        private System.Windows.Forms.ColumnHeader columnHeader14;
+        private System.Windows.Forms.ColumnHeader columnHeader15;
+        private System.Windows.Forms.ColumnHeader columnHeader16;
+        private System.Windows.Forms.ColumnHeader columnHeader17;
+        private System.Windows.Forms.ColumnHeader columnHeader18;
+        private System.Windows.Forms.GroupBox groupBox5;
+        private System.Windows.Forms.ContextMenuStrip contextMenuStripWorkers;
+        private System.Windows.Forms.ComboBox comboBox2;
+        private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.ComboBox comboBox1;
+        private System.Windows.Forms.GroupBox groupBox6;
+        private System.Windows.Forms.Label label8;
+        private System.Windows.Forms.MaskedTextBox maskedTextBox2;
+        private System.Windows.Forms.GroupBox groupBox7;
+        private System.Windows.Forms.CheckBox checkBox2;
+        private System.Windows.Forms.CheckBox checkBox3;
+        private System.Windows.Forms.Label label9;
+        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.ToolStripMenuItem отправитьНаМедосмотрToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem редактироватьToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem удалитьToolStripMenuItem;
+        private System.Windows.Forms.ToolStripSeparator toolStripSeparator1;
     }
 }

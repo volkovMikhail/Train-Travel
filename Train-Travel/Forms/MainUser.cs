@@ -143,7 +143,7 @@ namespace Train_Travel
                         Convert.ToString(dataReader[8]),
                         Convert.ToDateTime(dataReader[3]).ToShortDateString(),
                         Convert.ToString(dataReader[4]),
-                        Convert.ToDateTime(dataReader[5]).ToShortDateString(),
+                        Convert.ToDateTime(dataReader[5]).ToString(),
                         Convert.ToString(dataReader[6]),
                         Convert.ToString(dataReader[7])
                     });
