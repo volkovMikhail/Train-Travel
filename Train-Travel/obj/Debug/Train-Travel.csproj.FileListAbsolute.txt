@@ -14,3 +14,5 @@ C:\Users\VMICH\Desktop\Train-Travel\Train-Travel\obj\Debug\Train-Travel.exe
 C:\Users\VMICH\Desktop\Train-Travel\Train-Travel\obj\Debug\Train-Travel.pdb
 C:\Users\VMICH\Desktop\Train-Travel\Train-Travel\obj\Debug\Train_Travel.Forms.MainAdmin.resources
 C:\Users\VMICH\Desktop\Train-Travel\Train-Travel\obj\Debug\Train_Travel.Forms.addRoute.resources
+C:\Users\VMICH\Desktop\Train-Travel\Train-Travel\obj\Debug\Train_Travel.Forms.addWorker.resources
+C:\Users\VMICH\Desktop\Train-Travel\Train-Travel\obj\Debug\Train_Travel.Forms.addBrigade.resources

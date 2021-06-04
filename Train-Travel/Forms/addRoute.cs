@@ -53,7 +53,7 @@ namespace Train_Travel.Forms
             {
                 try
                 {
-                    SqlCommand cmd = new SqlCommand("INSERT INTO Voyage VALUES(@from,@to,@startDate,@time,@endDate,@count,@price,@type)", conn);
+                    SqlCommand cmd = new SqlCommand("INSERT INTO Voyage VALUES(@from,@to,@startDate,@time,@endDate,@count,@price,@type,@sell)", conn);
                     cmd.Parameters.Add("@from", SqlDbType.NVarChar).Value = textBoxFrom.Text;
                     cmd.Parameters.Add("@to", SqlDbType.NVarChar).Value = textBoxTo.Text;
                     cmd.Parameters.Add("@startDate", SqlDbType.Date).Value = dateTimePickerStart.Value;
@@ -62,6 +62,7 @@ namespace Train_Travel.Forms
                     cmd.Parameters.Add("@count", SqlDbType.Int).Value = Convert.ToInt32(textBoxCount.Text);
                     cmd.Parameters.Add("@price", SqlDbType.Decimal).Value = Convert.ToSingle(textBoxPrice.Text);
                     cmd.Parameters.Add("@type", SqlDbType.NVarChar).Value = Convert.ToString(comboBoxType.SelectedItem);
+                    cmd.Parameters.Add("@sell", SqlDbType.Int).Value = 0;
                     conn.Open();
                     cmd.ExecuteNonQuery();
                 }

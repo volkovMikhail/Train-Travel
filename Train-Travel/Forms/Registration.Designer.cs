@@ -29,6 +29,7 @@ namespace Train_Travel.Forms
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Registration));
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.labelErrorReg = new System.Windows.Forms.Label();
             this.buttonRegister = new System.Windows.Forms.Button();
@@ -248,6 +249,7 @@ namespace Train_Travel.Forms
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(338, 377);
             this.Controls.Add(this.groupBox1);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
             this.Name = "Registration";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;

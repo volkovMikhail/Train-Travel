@@ -31,6 +31,8 @@ namespace Train_Travel.Forms
             outputToCombo();
             dateTimePickerStartDate.Enabled = false;
             dateTimePickerStartDate.Value = DateTime.Now;
+            updateComboBrigades();
+            outputWorkers();   
         }
 
         private void outputToCombo()
@@ -97,7 +99,8 @@ namespace Train_Travel.Forms
                         Convert.ToString(dataReader[4]),
                         Convert.ToDateTime(dataReader[5]).ToString(),
                         Convert.ToString(dataReader[6]),
-                        Convert.ToString(dataReader[7])
+                        Convert.ToString(dataReader[7]),
+                        Convert.ToString(dataReader[9])
                     });
                     viewItem.Tag = dataReader[0];
                     listViewVoyages.Items.Add(viewItem);
@@ -202,9 +205,170 @@ namespace Train_Travel.Forms
             listViewVoyages.SelectedItems.Clear();
         }
 
-        private void удалитьToolStripMenuItem_Click(object sender, EventArgs e)
+        private void outputWorkers()
         {
+            workersParams workersParams;
+            workersParams.otdel = Convert.ToString(comboBoxOtdel.SelectedItem);
+            workersParams.brigada = Convert.ToString(comboBoxBrigades.SelectedItem);
+            workersParams.med = checkBoxMed.Checked;
+            workersParams.phone = maskedTextBoxPhoneSearchWorker.Text;
+            SqlCommand cmd = new SqlCommand(QueryBuilder.workers(workersParams), conn);
+            SqlDataReader dataReader = null;
+            try
+            {
+                conn.Open();
+                listViewWorkers.Items.Clear();
+                dataReader = cmd.ExecuteReader();
+                ListViewItem viewItem;
+                while (dataReader.Read())
+                {
+                    string type;
+                    if (Convert.ToBoolean(dataReader[8]))
+                    {
+                        type = "Рудоводитель";
+                    }
+                    else
+                    {
+                        type = "Работник";
+                    }
+                    viewItem = new ListViewItem(new string[]
+                    {
+                        Convert.ToString(dataReader[1]),
+                        Convert.ToString(dataReader[2]),
+                        Convert.ToString(dataReader[3]),
+                        Convert.ToString(dataReader[4]),
+                        Convert.ToString(dataReader[5]),
+                        Convert.ToString(dataReader[6]),
+                        Convert.ToString(dataReader[7]),
+                        type,
+                        Convert.ToDateTime(dataReader[9]).ToShortDateString(),
+                    });
+                    viewItem.Tag = dataReader[0];
+                    listViewWorkers.Items.Add(viewItem);
+                }
+                GC.Collect();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            finally
+            {
+                if (dataReader != null && !dataReader.IsClosed)
+                {
+                    dataReader.Close();
+                }
+                conn.Close();
+            }
+        }
 
+        private void удалитьToolStripMenuItem_Click(object sender, EventArgs e) // delete worker
+        {
+            if (listViewWorkers.SelectedIndices.Count > 0)
+            {
+                try
+                {
+                    SqlCommand cmd = new SqlCommand($"DELETE FROM Workers WHERE Id = {Convert.ToInt32(listViewWorkers.SelectedItems[0].Tag)}", conn);
+                    conn.Open();
+                    cmd.ExecuteNonQuery();
+                }
+                finally
+                {
+                    conn.Close();
+                }
+            }
+            else
+            {
+                MessageBox.Show("Вы не выбрали билет", "Info", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
+            listViewWorkers.SelectedItems.Clear();
+            outputWorkers();
+        }
+
+        private void buttonAddWorker_Click(object sender, EventArgs e)
+        {
+            addWorker addWorker = new addWorker();
+            addWorker.ShowDialog();
+            outputWorkers();
+        }
+
+        private void updateComboBrigades()
+        {
+            SqlCommand cmd = new SqlCommand("SELECT * FROM Brigades", conn);
+            SqlDataReader dataReader = null;
+            try
+            {
+                conn.Open();
+                comboBoxBrigades.Items.Clear();
+                comboBoxBrigades.Items.Add("Все");
+                dataReader = cmd.ExecuteReader();
+                while (dataReader.Read())
+                {
+                    comboBoxBrigades.Items.Add(Convert.ToString(dataReader[0]));
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            finally
+            {
+                if (dataReader != null && !dataReader.IsClosed)
+                {
+                    dataReader.Close();
+                }
+                conn.Close();
+
+            }
+            comboBoxOtdel.SelectedIndex = 0;
+            comboBoxBrigades.SelectedIndex = 0;
+        }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            addBrigade addBrigade = new addBrigade();
+            addBrigade.ShowDialog();
+            updateComboBrigades();
+        }
+
+        private void редактироватьToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (listViewWorkers.SelectedIndices.Count > 0)
+            {
+                addWorker addWorker = new addWorker(Convert.ToInt32(listViewWorkers.SelectedItems[0].Tag));
+                addWorker.ShowDialog();
+            }
+            else
+            {
+                MessageBox.Show("Вы не выбрали билет", "Info", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
+            listViewWorkers.SelectedItems.Clear();
+            outputWorkers();
+        }
+
+        private void comboBoxOtdel_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            outputWorkers();
+        }
+
+        private void comboBoxBrigades_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            outputWorkers();
+        }
+
+        private void maskedTextBoxPhoneSearchWorker_MaskInputRejected(object sender, MaskInputRejectedEventArgs e)
+        {
+            outputWorkers();
+        }
+
+        private void checkBoxMed_CheckedChanged(object sender, EventArgs e)
+        {
+            outputWorkers();
+        }
+
+        private void maskedTextBoxPhoneSearchWorker_TextChanged(object sender, EventArgs e)
+        {
+            outputWorkers();
         }
     }
 }

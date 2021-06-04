@@ -34,5 +34,28 @@ namespace Train_Travel.Utils
             }
             return cmd;
         }
+
+        public static string workers(workersParams WP)
+        {
+            string cmd = "SELECT * FROM Workers WHERE name LIKE N'%' ";
+            if (WP.otdel != "Все")
+            {
+                cmd += $"AND otdel = N'{WP.otdel}' ";
+            }
+            if (WP.brigada != "Все")
+            {
+                cmd += $"AND brigada = N'{WP.brigada}' ";
+            }
+            if (WP.med)
+            {
+                DateTime date = DateTime.Now.AddYears(-1);
+                cmd += $"AND medDate < '{date.Year}-{date.Month}-{date.Day}' ";
+            }
+            if (WP.phone.Trim().Length > 15)
+            {
+                cmd += $"AND phone LIKE N'%{WP.phone.Trim()}%'";
+            }
+            return cmd;
+        }
     }
 }

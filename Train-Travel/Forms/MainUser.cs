@@ -228,7 +228,7 @@ namespace Train_Travel
                     {
                         conn.Open();
                         cmd.ExecuteNonQuery();
-                        cmd = new SqlCommand($"UPDATE Voyage SET count = count - 1 WHERE Id = {Convert.ToInt32(listViewVoyages.SelectedItems[0].Tag)}", conn);
+                        cmd = new SqlCommand($"UPDATE Voyage SET count = count - 1, sell = sell + 1 WHERE Id = {Convert.ToInt32(listViewVoyages.SelectedItems[0].Tag)}", conn);
                         cmd.ExecuteNonQuery();
                         MessageBox.Show("Билет добавлен в личный кабинет", "Info", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     }
@@ -272,7 +272,7 @@ namespace Train_Travel
                     {
                         dataReader.Close();
                     }
-                    cmd = new SqlCommand($"UPDATE Voyage SET count = count + 1 WHERE Id = {Convert.ToInt32(Vid)}", conn);
+                    cmd = new SqlCommand($"UPDATE Voyage SET count = count + 1, sell = sell - 1 WHERE Id = {Convert.ToInt32(Vid)}", conn);
                     cmd.ExecuteNonQuery();
                     cmd = new SqlCommand($"DELETE FROM Orders WHERE Id = {Convert.ToInt32(id)}",conn);
                     cmd.ExecuteNonQuery();
