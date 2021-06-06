@@ -49,13 +49,13 @@ namespace Train_Travel.Forms
 
         private void button1_Click(object sender, EventArgs e)
         {
-            if (textBoxFrom.Text.Trim() != string.Empty && textBoxTo.Text.Trim() != string.Empty && comboBoxType.SelectedIndex >= 0 && maskedTextBoxStartTime.Text.Trim().Length == 5 && textBoxCount.Text != string.Empty && textBoxPrice.Text != string.Empty && dateTimePickerEnd.Value.Date >= dateTimePickerStart.Value.Date)
+            if (comboBoxFrom.SelectedIndex >= 0 && comboBoxTo.SelectedIndex >= 0 && comboBoxType.SelectedIndex >= 0 && maskedTextBoxStartTime.Text.Trim().Length == 5 && textBoxCount.Text != string.Empty && textBoxPrice.Text != string.Empty && dateTimePickerEnd.Value.Date >= dateTimePickerStart.Value.Date)
             {
                 try
                 {
                     SqlCommand cmd = new SqlCommand("INSERT INTO Voyage VALUES(@from,@to,@startDate,@time,@endDate,@count,@price,@type,@sell)", conn);
-                    cmd.Parameters.Add("@from", SqlDbType.NVarChar).Value = textBoxFrom.Text;
-                    cmd.Parameters.Add("@to", SqlDbType.NVarChar).Value = textBoxTo.Text;
+                    cmd.Parameters.Add("@from", SqlDbType.NVarChar).Value = Convert.ToString(comboBoxFrom.SelectedItem);
+                    cmd.Parameters.Add("@to", SqlDbType.NVarChar).Value = Convert.ToString(comboBoxTo.SelectedItem);
                     cmd.Parameters.Add("@startDate", SqlDbType.Date).Value = dateTimePickerStart.Value;
                     cmd.Parameters.Add("@time", SqlDbType.Time).Value = maskedTextBoxStartTime.Text;
                     cmd.Parameters.Add("@endDate", SqlDbType.DateTime).Value = dateTimePickerEnd.Value;
@@ -81,6 +81,48 @@ namespace Train_Travel.Forms
             {
                 MessageBox.Show("Дополните данные","Внимание!",MessageBoxButtons.OK,MessageBoxIcon.Warning);
             }
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            addPlace addPlace = new addPlace();
+            addPlace.ShowDialog();
+            outputFromPlaces();
+        }
+
+        private void outputFromPlaces()
+        {
+            comboBoxFrom.Items.Clear();
+            comboBoxTo.Items.Clear();
+            SqlCommand cmd = new SqlCommand("SELECT * FROM Places", conn);
+            SqlDataReader dataReader = null;
+            try
+            {
+                conn.Open();
+                dataReader = cmd.ExecuteReader();
+                while (dataReader.Read())
+                {
+                    comboBoxFrom.Items.Add(Convert.ToString(dataReader[0]));
+                    comboBoxTo.Items.Add(Convert.ToString(dataReader[0]));
+                }
+                GC.Collect();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            finally
+            {
+                if (dataReader != null && !dataReader.IsClosed)
+                {
+                    dataReader.Close();
+                }
+                conn.Close();
+            }
+        }
+        private void addRoute_Load(object sender, EventArgs e)
+        {
+            outputFromPlaces();
         }
     }
 }

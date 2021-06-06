@@ -93,6 +93,17 @@ namespace Train_Travel.Forms
             this.comboBoxOtdel = new System.Windows.Forms.ComboBox();
             this.tabPage4 = new System.Windows.Forms.TabPage();
             this.tabPage5 = new System.Windows.Forms.TabPage();
+            this.splitContainer3 = new System.Windows.Forms.SplitContainer();
+            this.listView1 = new System.Windows.Forms.ListView();
+            this.columnHeader28 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnHeader29 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnHeader30 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnHeader31 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnHeader32 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnHeader33 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnHeader34 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnHeader35 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.contextMenuStripLokomotiv = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
@@ -113,6 +124,10 @@ namespace Train_Travel.Forms
             this.groupBox7.SuspendLayout();
             this.groupBox6.SuspendLayout();
             this.groupBox5.SuspendLayout();
+            this.tabPage4.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.splitContainer3)).BeginInit();
+            this.splitContainer3.Panel1.SuspendLayout();
+            this.splitContainer3.SuspendLayout();
             this.SuspendLayout();
             // 
             // tabControl1
@@ -675,6 +690,7 @@ namespace Train_Travel.Forms
             // 
             // tabPage4
             // 
+            this.tabPage4.Controls.Add(this.splitContainer3);
             this.tabPage4.Location = new System.Drawing.Point(4, 22);
             this.tabPage4.Name = "tabPage4";
             this.tabPage4.Size = new System.Drawing.Size(876, 507);
@@ -690,6 +706,89 @@ namespace Train_Travel.Forms
             this.tabPage5.TabIndex = 4;
             this.tabPage5.Text = "Пассажиры";
             this.tabPage5.UseVisualStyleBackColor = true;
+            // 
+            // splitContainer3
+            // 
+            this.splitContainer3.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.splitContainer3.Location = new System.Drawing.Point(0, 0);
+            this.splitContainer3.Name = "splitContainer3";
+            this.splitContainer3.Orientation = System.Windows.Forms.Orientation.Horizontal;
+            // 
+            // splitContainer3.Panel1
+            // 
+            this.splitContainer3.Panel1.Controls.Add(this.listView1);
+            this.splitContainer3.Size = new System.Drawing.Size(876, 507);
+            this.splitContainer3.SplitterDistance = 397;
+            this.splitContainer3.TabIndex = 1;
+            // 
+            // listView1
+            // 
+            this.listView1.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
+            this.columnHeader28,
+            this.columnHeader29,
+            this.columnHeader30,
+            this.columnHeader31,
+            this.columnHeader32,
+            this.columnHeader33,
+            this.columnHeader34,
+            this.columnHeader35});
+            this.listView1.ContextMenuStrip = this.contextMenuStripWorkers;
+            this.listView1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.listView1.FullRowSelect = true;
+            this.listView1.GridLines = true;
+            this.listView1.HideSelection = false;
+            this.listView1.Location = new System.Drawing.Point(0, 0);
+            this.listView1.MultiSelect = false;
+            this.listView1.Name = "listView1";
+            this.listView1.Size = new System.Drawing.Size(876, 397);
+            this.listView1.TabIndex = 0;
+            this.listView1.UseCompatibleStateImageBehavior = false;
+            this.listView1.View = System.Windows.Forms.View.Details;
+            // 
+            // columnHeader28
+            // 
+            this.columnHeader28.Text = "Номер";
+            this.columnHeader28.Width = 62;
+            // 
+            // columnHeader29
+            // 
+            this.columnHeader29.Text = "Тип";
+            this.columnHeader29.Width = 76;
+            // 
+            // columnHeader30
+            // 
+            this.columnHeader30.Text = "Кол-во мест";
+            this.columnHeader30.Width = 74;
+            // 
+            // columnHeader31
+            // 
+            this.columnHeader31.Text = "Кол-во завершённых рейсов";
+            this.columnHeader31.Width = 162;
+            // 
+            // columnHeader32
+            // 
+            this.columnHeader32.Text = "Кол-во ремонтов";
+            this.columnHeader32.Width = 102;
+            // 
+            // columnHeader33
+            // 
+            this.columnHeader33.Text = "Приписан к вокзалу";
+            this.columnHeader33.Width = 119;
+            // 
+            // columnHeader34
+            // 
+            this.columnHeader34.Text = "Бригада";
+            this.columnHeader34.Width = 136;
+            // 
+            // columnHeader35
+            // 
+            this.columnHeader35.Text = "Бригада ремонтников";
+            this.columnHeader35.Width = 141;
+            // 
+            // contextMenuStripLokomotiv
+            // 
+            this.contextMenuStripLokomotiv.Name = "contextMenuStripLokomotiv";
+            this.contextMenuStripLokomotiv.Size = new System.Drawing.Size(61, 4);
             // 
             // MainAdmin
             // 
@@ -730,6 +829,10 @@ namespace Train_Travel.Forms
             this.groupBox6.PerformLayout();
             this.groupBox5.ResumeLayout(false);
             this.groupBox5.PerformLayout();
+            this.tabPage4.ResumeLayout(false);
+            this.splitContainer3.Panel1.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.splitContainer3)).EndInit();
+            this.splitContainer3.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -798,5 +901,16 @@ namespace Train_Travel.Forms
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator1;
         private System.Windows.Forms.Button button3;
         private System.Windows.Forms.ColumnHeader columnHeader19;
+        private System.Windows.Forms.SplitContainer splitContainer3;
+        private System.Windows.Forms.ListView listView1;
+        private System.Windows.Forms.ColumnHeader columnHeader28;
+        private System.Windows.Forms.ColumnHeader columnHeader29;
+        private System.Windows.Forms.ColumnHeader columnHeader30;
+        private System.Windows.Forms.ColumnHeader columnHeader31;
+        private System.Windows.Forms.ColumnHeader columnHeader32;
+        private System.Windows.Forms.ColumnHeader columnHeader33;
+        private System.Windows.Forms.ColumnHeader columnHeader34;
+        private System.Windows.Forms.ColumnHeader columnHeader35;
+        private System.Windows.Forms.ContextMenuStrip contextMenuStripLokomotiv;
     }
 }
