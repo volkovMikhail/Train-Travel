@@ -82,6 +82,12 @@
     <Compile Include="Forms\addRoute.Designer.cs">
       <DependentUpon>addRoute.cs</DependentUpon>
     </Compile>
+    <Compile Include="Forms\addTrain.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\addTrain.Designer.cs">
+      <DependentUpon>addTrain.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forms\addWorker.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -131,6 +137,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\addRoute.resx">
       <DependentUpon>addRoute.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\addTrain.resx">
+      <DependentUpon>addTrain.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\addWorker.resx">
       <DependentUpon>addWorker.cs</DependentUpon>

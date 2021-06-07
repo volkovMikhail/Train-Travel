@@ -32,7 +32,41 @@ namespace Train_Travel.Forms
             dateTimePickerStartDate.Enabled = false;
             dateTimePickerStartDate.Value = DateTime.Now;
             updateComboBrigades();
-            outputWorkers();   
+            outputWorkers();
+            updateComboPlaces();
+            outputTrains();
+        }
+
+        private void updateComboPlaces()
+        {
+            comboBoxConnPlace.Items.Clear();
+            comboBoxConnPlace.Items.Add("Все");
+
+            SqlCommand cmd = new SqlCommand("SELECT * FROM Places", conn);
+            SqlDataReader dataReader = null;
+            try
+            {
+                conn.Open();
+                dataReader = cmd.ExecuteReader();
+                while (dataReader.Read())
+                {
+                    comboBoxConnPlace.Items.Add(Convert.ToString(dataReader[0]));
+                }
+                GC.Collect();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            finally
+            {
+                if (dataReader != null && !dataReader.IsClosed)
+                {
+                    dataReader.Close();
+                }
+                conn.Close();
+                comboBoxConnPlace.SelectedIndex = 0;
+            }
         }
 
         private void outputToCombo()
@@ -301,10 +335,16 @@ namespace Train_Travel.Forms
                 conn.Open();
                 comboBoxBrigades.Items.Clear();
                 comboBoxBrigades.Items.Add("Все");
+                comboBoxTrainBrigade.Items.Clear();
+                comboBoxTrainBrigade.Items.Add("Все");
+                comboBoxRepairBrigade.Items.Clear();
+                comboBoxRepairBrigade.Items.Add("Все");
                 dataReader = cmd.ExecuteReader();
                 while (dataReader.Read())
                 {
                     comboBoxBrigades.Items.Add(Convert.ToString(dataReader[0]));
+                    comboBoxTrainBrigade.Items.Add(Convert.ToString(dataReader[0]));
+                    comboBoxRepairBrigade.Items.Add(Convert.ToString(dataReader[0]));
                 }
             }
             catch (Exception ex)
@@ -322,6 +362,8 @@ namespace Train_Travel.Forms
             }
             comboBoxOtdel.SelectedIndex = 0;
             comboBoxBrigades.SelectedIndex = 0;
+            comboBoxTrainBrigade.SelectedIndex = 0;
+            comboBoxRepairBrigade.SelectedIndex = 0;
         }
 
         private void button3_Click(object sender, EventArgs e)
@@ -369,6 +411,97 @@ namespace Train_Travel.Forms
         private void maskedTextBoxPhoneSearchWorker_TextChanged(object sender, EventArgs e)
         {
             outputWorkers();
+        }
+
+        private void buttonAddTrain_Click(object sender, EventArgs e)
+        {
+            addTrain addTrain = new addTrain();
+            addTrain.ShowDialog();
+            outputTrains();
+        }
+
+        private void outputTrains()
+        {
+            trainsParams trainsParams;
+            trainsParams.brigade = Convert.ToString(comboBoxTrainBrigade.SelectedItem);
+            trainsParams.repBrigade = Convert.ToString(comboBoxRepairBrigade.SelectedItem);
+            trainsParams.id = textBoxTrainId.Text;
+            trainsParams.place = Convert.ToString(comboBoxConnPlace.SelectedItem);
+            SqlCommand cmd = new SqlCommand(QueryBuilder.trains(trainsParams), conn);
+            SqlDataReader dataReader = null;
+            try
+            {
+                conn.Open();
+                listViewTrains.Items.Clear();
+                dataReader = cmd.ExecuteReader();
+                ListViewItem viewItem;
+                while (dataReader.Read())
+                {
+                    viewItem = new ListViewItem(new string[]
+                    {
+                        Convert.ToString(dataReader[0]),
+                        Convert.ToString(dataReader[1]),
+                        Convert.ToString(dataReader[2]),
+                        Convert.ToString(dataReader[3]),
+                        Convert.ToString(dataReader[4]),
+                        Convert.ToString(dataReader[5]),
+                        Convert.ToString(dataReader[6]),
+                        Convert.ToString(dataReader[7])
+                    });
+                    viewItem.Tag = dataReader[0];
+                    listViewTrains.Items.Add(viewItem);
+                }
+                GC.Collect();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            finally
+            {
+                if (dataReader != null && !dataReader.IsClosed)
+                {
+                    dataReader.Close();
+                }
+                conn.Close();
+            }
+        }
+
+        private void textBoxTrainId_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            char number = e.KeyChar;
+
+            if (!Char.IsDigit(number) && !Char.IsControl(number))
+            {
+                e.Handled = true;
+            }
+        }
+
+        private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            outputTrains();
+        }
+
+        private void textBoxTrainId_TextChanged(object sender, EventArgs e)
+        {
+            outputTrains();
+        }
+
+        private void comboBoxTrainBrigade_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            outputTrains();
+        }
+
+        private void comboBoxRepairBrigade_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            outputTrains();
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            addPlace addPlace = new addPlace();
+            addPlace.ShowDialog();
+            updateComboPlaces();
         }
     }
 }

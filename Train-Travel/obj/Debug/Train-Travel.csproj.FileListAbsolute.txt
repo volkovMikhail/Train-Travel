@@ -17,3 +17,4 @@ C:\Users\VMICH\Desktop\Train-Travel\Train-Travel\obj\Debug\Train_Travel.Forms.ad
 C:\Users\VMICH\Desktop\Train-Travel\Train-Travel\obj\Debug\Train_Travel.Forms.addWorker.resources
 C:\Users\VMICH\Desktop\Train-Travel\Train-Travel\obj\Debug\Train_Travel.Forms.addBrigade.resources
 C:\Users\VMICH\Desktop\Train-Travel\Train-Travel\obj\Debug\Train_Travel.Forms.addPlace.resources
+C:\Users\VMICH\Desktop\Train-Travel\Train-Travel\obj\Debug\Train_Travel.Forms.addTrain.resources

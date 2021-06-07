@@ -92,9 +92,8 @@ namespace Train_Travel.Forms
             this.label2 = new System.Windows.Forms.Label();
             this.comboBoxOtdel = new System.Windows.Forms.ComboBox();
             this.tabPage4 = new System.Windows.Forms.TabPage();
-            this.tabPage5 = new System.Windows.Forms.TabPage();
             this.splitContainer3 = new System.Windows.Forms.SplitContainer();
-            this.listView1 = new System.Windows.Forms.ListView();
+            this.listViewTrains = new System.Windows.Forms.ListView();
             this.columnHeader28 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader29 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader30 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
@@ -104,6 +103,21 @@ namespace Train_Travel.Forms
             this.columnHeader34 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader35 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.contextMenuStripLokomotiv = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.редактироватьToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripSeparator2 = new System.Windows.Forms.ToolStripSeparator();
+            this.удалитьToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
+            this.buttonAddTrain = new System.Windows.Forms.Button();
+            this.tabPage5 = new System.Windows.Forms.TabPage();
+            this.label10 = new System.Windows.Forms.Label();
+            this.comboBoxTrainBrigade = new System.Windows.Forms.ComboBox();
+            this.comboBoxRepairBrigade = new System.Windows.Forms.ComboBox();
+            this.textBoxTrainId = new System.Windows.Forms.TextBox();
+            this.label11 = new System.Windows.Forms.Label();
+            this.label12 = new System.Windows.Forms.Label();
+            this.label13 = new System.Windows.Forms.Label();
+            this.comboBoxConnPlace = new System.Windows.Forms.ComboBox();
+            this.groupBox8 = new System.Windows.Forms.GroupBox();
+            this.button2 = new System.Windows.Forms.Button();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
@@ -127,7 +141,10 @@ namespace Train_Travel.Forms
             this.tabPage4.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer3)).BeginInit();
             this.splitContainer3.Panel1.SuspendLayout();
+            this.splitContainer3.Panel2.SuspendLayout();
             this.splitContainer3.SuspendLayout();
+            this.contextMenuStripLokomotiv.SuspendLayout();
+            this.groupBox8.SuspendLayout();
             this.SuspendLayout();
             // 
             // tabControl1
@@ -698,15 +715,6 @@ namespace Train_Travel.Forms
             this.tabPage4.Text = "Локомотивы";
             this.tabPage4.UseVisualStyleBackColor = true;
             // 
-            // tabPage5
-            // 
-            this.tabPage5.Location = new System.Drawing.Point(4, 22);
-            this.tabPage5.Name = "tabPage5";
-            this.tabPage5.Size = new System.Drawing.Size(876, 507);
-            this.tabPage5.TabIndex = 4;
-            this.tabPage5.Text = "Пассажиры";
-            this.tabPage5.UseVisualStyleBackColor = true;
-            // 
             // splitContainer3
             // 
             this.splitContainer3.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -716,14 +724,20 @@ namespace Train_Travel.Forms
             // 
             // splitContainer3.Panel1
             // 
-            this.splitContainer3.Panel1.Controls.Add(this.listView1);
+            this.splitContainer3.Panel1.Controls.Add(this.listViewTrains);
+            // 
+            // splitContainer3.Panel2
+            // 
+            this.splitContainer3.Panel2.Controls.Add(this.button2);
+            this.splitContainer3.Panel2.Controls.Add(this.buttonAddTrain);
+            this.splitContainer3.Panel2.Controls.Add(this.groupBox8);
             this.splitContainer3.Size = new System.Drawing.Size(876, 507);
             this.splitContainer3.SplitterDistance = 397;
             this.splitContainer3.TabIndex = 1;
             // 
-            // listView1
+            // listViewTrains
             // 
-            this.listView1.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
+            this.listViewTrains.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
             this.columnHeader28,
             this.columnHeader29,
             this.columnHeader30,
@@ -732,18 +746,18 @@ namespace Train_Travel.Forms
             this.columnHeader33,
             this.columnHeader34,
             this.columnHeader35});
-            this.listView1.ContextMenuStrip = this.contextMenuStripWorkers;
-            this.listView1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.listView1.FullRowSelect = true;
-            this.listView1.GridLines = true;
-            this.listView1.HideSelection = false;
-            this.listView1.Location = new System.Drawing.Point(0, 0);
-            this.listView1.MultiSelect = false;
-            this.listView1.Name = "listView1";
-            this.listView1.Size = new System.Drawing.Size(876, 397);
-            this.listView1.TabIndex = 0;
-            this.listView1.UseCompatibleStateImageBehavior = false;
-            this.listView1.View = System.Windows.Forms.View.Details;
+            this.listViewTrains.ContextMenuStrip = this.contextMenuStripLokomotiv;
+            this.listViewTrains.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.listViewTrains.FullRowSelect = true;
+            this.listViewTrains.GridLines = true;
+            this.listViewTrains.HideSelection = false;
+            this.listViewTrains.Location = new System.Drawing.Point(0, 0);
+            this.listViewTrains.MultiSelect = false;
+            this.listViewTrains.Name = "listViewTrains";
+            this.listViewTrains.Size = new System.Drawing.Size(876, 397);
+            this.listViewTrains.TabIndex = 0;
+            this.listViewTrains.UseCompatibleStateImageBehavior = false;
+            this.listViewTrains.View = System.Windows.Forms.View.Details;
             // 
             // columnHeader28
             // 
@@ -787,8 +801,147 @@ namespace Train_Travel.Forms
             // 
             // contextMenuStripLokomotiv
             // 
+            this.contextMenuStripLokomotiv.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.редактироватьToolStripMenuItem1,
+            this.toolStripSeparator2,
+            this.удалитьToolStripMenuItem1});
             this.contextMenuStripLokomotiv.Name = "contextMenuStripLokomotiv";
-            this.contextMenuStripLokomotiv.Size = new System.Drawing.Size(61, 4);
+            this.contextMenuStripLokomotiv.Size = new System.Drawing.Size(155, 54);
+            // 
+            // редактироватьToolStripMenuItem1
+            // 
+            this.редактироватьToolStripMenuItem1.Name = "редактироватьToolStripMenuItem1";
+            this.редактироватьToolStripMenuItem1.Size = new System.Drawing.Size(154, 22);
+            this.редактироватьToolStripMenuItem1.Text = "Редактировать";
+            // 
+            // toolStripSeparator2
+            // 
+            this.toolStripSeparator2.Name = "toolStripSeparator2";
+            this.toolStripSeparator2.Size = new System.Drawing.Size(151, 6);
+            // 
+            // удалитьToolStripMenuItem1
+            // 
+            this.удалитьToolStripMenuItem1.Name = "удалитьToolStripMenuItem1";
+            this.удалитьToolStripMenuItem1.Size = new System.Drawing.Size(154, 22);
+            this.удалитьToolStripMenuItem1.Text = "Удалить";
+            // 
+            // buttonAddTrain
+            // 
+            this.buttonAddTrain.Location = new System.Drawing.Point(572, 80);
+            this.buttonAddTrain.Name = "buttonAddTrain";
+            this.buttonAddTrain.Size = new System.Drawing.Size(159, 23);
+            this.buttonAddTrain.TabIndex = 3;
+            this.buttonAddTrain.Text = "Добавить локоматив";
+            this.buttonAddTrain.UseVisualStyleBackColor = true;
+            this.buttonAddTrain.Click += new System.EventHandler(this.buttonAddTrain_Click);
+            // 
+            // tabPage5
+            // 
+            this.tabPage5.Location = new System.Drawing.Point(4, 22);
+            this.tabPage5.Name = "tabPage5";
+            this.tabPage5.Size = new System.Drawing.Size(876, 507);
+            this.tabPage5.TabIndex = 4;
+            this.tabPage5.Text = "Пассажиры";
+            this.tabPage5.UseVisualStyleBackColor = true;
+            // 
+            // label10
+            // 
+            this.label10.AutoSize = true;
+            this.label10.Location = new System.Drawing.Point(19, 32);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(49, 13);
+            this.label10.TabIndex = 1;
+            this.label10.Text = "Бригада";
+            // 
+            // comboBoxTrainBrigade
+            // 
+            this.comboBoxTrainBrigade.FormattingEnabled = true;
+            this.comboBoxTrainBrigade.Location = new System.Drawing.Point(153, 29);
+            this.comboBoxTrainBrigade.Name = "comboBoxTrainBrigade";
+            this.comboBoxTrainBrigade.Size = new System.Drawing.Size(121, 21);
+            this.comboBoxTrainBrigade.TabIndex = 0;
+            this.comboBoxTrainBrigade.SelectedIndexChanged += new System.EventHandler(this.comboBoxTrainBrigade_SelectedIndexChanged);
+            // 
+            // comboBoxRepairBrigade
+            // 
+            this.comboBoxRepairBrigade.FormattingEnabled = true;
+            this.comboBoxRepairBrigade.Location = new System.Drawing.Point(153, 56);
+            this.comboBoxRepairBrigade.Name = "comboBoxRepairBrigade";
+            this.comboBoxRepairBrigade.Size = new System.Drawing.Size(121, 21);
+            this.comboBoxRepairBrigade.TabIndex = 2;
+            this.comboBoxRepairBrigade.SelectedIndexChanged += new System.EventHandler(this.comboBoxRepairBrigade_SelectedIndexChanged);
+            // 
+            // textBoxTrainId
+            // 
+            this.textBoxTrainId.Location = new System.Drawing.Point(412, 29);
+            this.textBoxTrainId.Name = "textBoxTrainId";
+            this.textBoxTrainId.Size = new System.Drawing.Size(126, 20);
+            this.textBoxTrainId.TabIndex = 3;
+            this.textBoxTrainId.TextChanged += new System.EventHandler(this.textBoxTrainId_TextChanged);
+            this.textBoxTrainId.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textBoxTrainId_KeyPress);
+            // 
+            // label11
+            // 
+            this.label11.AutoSize = true;
+            this.label11.Location = new System.Drawing.Point(297, 32);
+            this.label11.Name = "label11";
+            this.label11.Size = new System.Drawing.Size(105, 13);
+            this.label11.TabIndex = 4;
+            this.label11.Text = "Номер локоматива";
+            // 
+            // label12
+            // 
+            this.label12.AutoSize = true;
+            this.label12.Location = new System.Drawing.Point(19, 59);
+            this.label12.Name = "label12";
+            this.label12.Size = new System.Drawing.Size(119, 13);
+            this.label12.TabIndex = 5;
+            this.label12.Text = "Бригада ремонтников";
+            // 
+            // label13
+            // 
+            this.label13.AutoSize = true;
+            this.label13.Location = new System.Drawing.Point(297, 59);
+            this.label13.Name = "label13";
+            this.label13.Size = new System.Drawing.Size(44, 13);
+            this.label13.TabIndex = 6;
+            this.label13.Text = "Вокзал";
+            // 
+            // comboBoxConnPlace
+            // 
+            this.comboBoxConnPlace.FormattingEnabled = true;
+            this.comboBoxConnPlace.Location = new System.Drawing.Point(412, 56);
+            this.comboBoxConnPlace.Name = "comboBoxConnPlace";
+            this.comboBoxConnPlace.Size = new System.Drawing.Size(126, 21);
+            this.comboBoxConnPlace.TabIndex = 7;
+            this.comboBoxConnPlace.SelectedIndexChanged += new System.EventHandler(this.comboBox1_SelectedIndexChanged);
+            // 
+            // groupBox8
+            // 
+            this.groupBox8.Controls.Add(this.comboBoxConnPlace);
+            this.groupBox8.Controls.Add(this.label13);
+            this.groupBox8.Controls.Add(this.label12);
+            this.groupBox8.Controls.Add(this.label11);
+            this.groupBox8.Controls.Add(this.textBoxTrainId);
+            this.groupBox8.Controls.Add(this.comboBoxRepairBrigade);
+            this.groupBox8.Controls.Add(this.comboBoxTrainBrigade);
+            this.groupBox8.Controls.Add(this.label10);
+            this.groupBox8.Location = new System.Drawing.Point(3, 3);
+            this.groupBox8.Name = "groupBox8";
+            this.groupBox8.Size = new System.Drawing.Size(563, 100);
+            this.groupBox8.TabIndex = 2;
+            this.groupBox8.TabStop = false;
+            this.groupBox8.Text = "Поиск локоматива";
+            // 
+            // button2
+            // 
+            this.button2.Location = new System.Drawing.Point(572, 51);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(159, 23);
+            this.button2.TabIndex = 4;
+            this.button2.Text = "Добавить вокзал";
+            this.button2.UseVisualStyleBackColor = true;
+            this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
             // MainAdmin
             // 
@@ -831,8 +984,12 @@ namespace Train_Travel.Forms
             this.groupBox5.PerformLayout();
             this.tabPage4.ResumeLayout(false);
             this.splitContainer3.Panel1.ResumeLayout(false);
+            this.splitContainer3.Panel2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer3)).EndInit();
             this.splitContainer3.ResumeLayout(false);
+            this.contextMenuStripLokomotiv.ResumeLayout(false);
+            this.groupBox8.ResumeLayout(false);
+            this.groupBox8.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -902,7 +1059,7 @@ namespace Train_Travel.Forms
         private System.Windows.Forms.Button button3;
         private System.Windows.Forms.ColumnHeader columnHeader19;
         private System.Windows.Forms.SplitContainer splitContainer3;
-        private System.Windows.Forms.ListView listView1;
+        private System.Windows.Forms.ListView listViewTrains;
         private System.Windows.Forms.ColumnHeader columnHeader28;
         private System.Windows.Forms.ColumnHeader columnHeader29;
         private System.Windows.Forms.ColumnHeader columnHeader30;
@@ -912,5 +1069,19 @@ namespace Train_Travel.Forms
         private System.Windows.Forms.ColumnHeader columnHeader34;
         private System.Windows.Forms.ColumnHeader columnHeader35;
         private System.Windows.Forms.ContextMenuStrip contextMenuStripLokomotiv;
+        private System.Windows.Forms.Button buttonAddTrain;
+        private System.Windows.Forms.ToolStripMenuItem редактироватьToolStripMenuItem1;
+        private System.Windows.Forms.ToolStripSeparator toolStripSeparator2;
+        private System.Windows.Forms.ToolStripMenuItem удалитьToolStripMenuItem1;
+        private System.Windows.Forms.GroupBox groupBox8;
+        private System.Windows.Forms.ComboBox comboBoxConnPlace;
+        private System.Windows.Forms.Label label13;
+        private System.Windows.Forms.Label label12;
+        private System.Windows.Forms.Label label11;
+        private System.Windows.Forms.TextBox textBoxTrainId;
+        private System.Windows.Forms.ComboBox comboBoxRepairBrigade;
+        private System.Windows.Forms.ComboBox comboBoxTrainBrigade;
+        private System.Windows.Forms.Label label10;
+        private System.Windows.Forms.Button button2;
     }
 }

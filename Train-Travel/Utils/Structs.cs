@@ -23,4 +23,12 @@ namespace Train_Travel.Utils
         public string phone;
         public bool med;
     }
+
+    public struct trainsParams
+    {
+        public string brigade;
+        public string repBrigade;
+        public string id;
+        public string place;
+    }
 }

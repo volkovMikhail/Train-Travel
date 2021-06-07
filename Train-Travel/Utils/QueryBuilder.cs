@@ -57,5 +57,27 @@ namespace Train_Travel.Utils
             }
             return cmd;
         }
+
+        public static string trains(trainsParams tp)
+        {
+            string cmd = "SELECT * FROM Trains WHERE id > -1 ";
+            if (tp.id.Trim() != string.Empty)
+            {
+                cmd += $" AND id = {tp.id} ";
+            }
+            if (tp.place != "Все")
+            {
+                cmd += $" AND connectToPlace = N'{tp.place}'";
+            }
+            if (tp.repBrigade != "Все")
+            {
+                cmd += $" AND repairBrigade = N'{tp.repBrigade}'";
+            }
+            if (tp.brigade != "Все")
+            {
+                cmd += $" AND brigade = N'{tp.brigade}'";
+            }
+            return cmd;
+        }
     }
 }

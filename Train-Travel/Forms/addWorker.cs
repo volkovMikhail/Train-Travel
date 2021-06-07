@@ -31,6 +31,7 @@ namespace Train_Travel.Forms
             InitializeComponent();
             conn = new SqlConnection(ConfigurationManager.ConnectionStrings["db"].ConnectionString);
             loadBrigades();
+            button1.Text = "Изменить";
             isEditMode = true;
             SqlCommand cmd = new SqlCommand($"SELECT * FROM Workers WHERE Id = {id}", conn);
             SqlDataReader dataReader = null;

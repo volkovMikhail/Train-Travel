@@ -48,5 +48,10 @@ namespace Train_Travel.Forms
                 MessageBox.Show("Дополните данные", "Внимание!", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
         }
+
+        private void addPlace_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }
