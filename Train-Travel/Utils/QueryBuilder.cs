@@ -79,5 +79,23 @@ namespace Train_Travel.Utils
             }
             return cmd;
         }
+
+        public static string users(userParams up)
+        {
+            string cmd = "SELECT * FROM Users WHERE id > -1 ";
+            if (up.id != string.Empty)
+            {
+                cmd += $"AND id = {up.id} ";
+            }
+            if (up.email != string.Empty)
+            {
+                cmd += $"AND email LIKE N'%{up.email}%' ";
+            }
+            if (up.phone.Trim().Length > 15)
+            {
+                cmd += $"AND phone LIKE N'%{up.phone.Trim()}%' ";
+            }
+            return cmd;
+        }
     }
 }

@@ -69,14 +69,17 @@ namespace Train_Travel.Forms
                         }
                         else if (role == 1)
                         {
-                            MainAdmin mainAdmin = new MainAdmin(userId);
+                            MainAdmin mainAdmin = new MainAdmin();
                             this.Hide();
                             mainAdmin.ShowDialog();
                             this.Show();
                         }
                         else if (role == 2)
                         {
-                            //TODD: самый главный админ
+                            Admin admin = new Admin();
+                            this.Hide();
+                            admin.ShowDialog();
+                            this.Show();
                         }
                     }
                     else

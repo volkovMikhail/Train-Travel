@@ -16,18 +16,15 @@ namespace Train_Travel.Forms
 {
     public partial class MainAdmin : Form
     {
-        User user;
         SqlConnection conn;
-        public MainAdmin(int userId)
+        public MainAdmin()
         {
             InitializeComponent();
-            user = new User(userId);
         }
 
         private void MainAdmin_Load(object sender, EventArgs e)
         {
             conn = new SqlConnection(ConfigurationManager.ConnectionStrings["db"].ConnectionString);
-            listViewVoyages.AutoResizeColumns(ColumnHeaderAutoResizeStyle.HeaderSize);
             outputToCombo();
             dateTimePickerStartDate.Enabled = false;
             dateTimePickerStartDate.Value = DateTime.Now;
@@ -35,6 +32,54 @@ namespace Train_Travel.Forms
             outputWorkers();
             updateComboPlaces();
             outputTrains();
+            outputUsers();
+        }
+
+        private void outputUsers()
+        {
+            userParams userParams;
+            userParams.email = textBoxUserEmail.Text;
+            userParams.phone = maskedTextBoxUserPhone.Text;
+            userParams.id = textBoxId.Text;
+            SqlCommand cmd = new SqlCommand(QueryBuilder.users(userParams), conn);
+            SqlDataReader dataReader = null;
+            try
+            {
+                conn.Open();
+                listViewUsers.Items.Clear();
+                dataReader = cmd.ExecuteReader();
+                ListViewItem viewItem;
+                while (dataReader.Read())
+                {
+                    if (0 == Convert.ToInt32(dataReader[7]))
+                    {
+                        viewItem = new ListViewItem(new string[]
+                        {
+                            Convert.ToString(dataReader[0]),
+                            Convert.ToString(dataReader[1]),
+                            Convert.ToString(dataReader[2]),
+                            Convert.ToString(dataReader[3]),
+                            Convert.ToString(dataReader[4]),
+                            Convert.ToString(dataReader[5])
+                        });
+                        viewItem.Tag = dataReader[0];
+                        listViewUsers.Items.Add(viewItem);
+                    }
+                }
+                GC.Collect();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            finally
+            {
+                if (dataReader != null && !dataReader.IsClosed)
+                {
+                    dataReader.Close();
+                }
+                conn.Close();
+            }
         }
 
         private void updateComboPlaces()
@@ -313,7 +358,7 @@ namespace Train_Travel.Forms
             }
             else
             {
-                MessageBox.Show("Вы не выбрали билет", "Info", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                MessageBox.Show("Вы не выбрали работника", "Info", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
             listViewWorkers.SelectedItems.Clear();
             outputWorkers();
@@ -382,7 +427,7 @@ namespace Train_Travel.Forms
             }
             else
             {
-                MessageBox.Show("Вы не выбрали билет", "Info", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                MessageBox.Show("Вы не выбрали работника", "Info", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
             listViewWorkers.SelectedItems.Clear();
             outputWorkers();
@@ -502,6 +547,84 @@ namespace Train_Travel.Forms
             addPlace addPlace = new addPlace();
             addPlace.ShowDialog();
             updateComboPlaces();
+        }
+
+        private void удалитьToolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+            if (listViewTrains.SelectedIndices.Count > 0)
+            {
+                try
+                {
+                    SqlCommand cmd = new SqlCommand($"DELETE FROM Trains WHERE Id = {Convert.ToInt32(listViewTrains.SelectedItems[0].Tag)}", conn);
+                    conn.Open();
+                    cmd.ExecuteNonQuery();
+                }
+                finally
+                {
+                    conn.Close();
+                }
+            }
+            else
+            {
+                MessageBox.Show("Вы не выбрали локоматив", "Info", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
+            listViewTrains.SelectedItems.Clear();
+            outputTrains();
+        }
+
+        private void редактироватьToolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+            if (listViewTrains.SelectedIndices.Count > 0)
+            {
+                addTrain addTrain = new addTrain(Convert.ToInt32(listViewTrains.SelectedItems[0].Tag));
+                addTrain.ShowDialog();
+            }
+            else
+            {
+                MessageBox.Show("Вы не выбрали локоматив", "Info", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
+            listViewTrains.SelectedItems.Clear();
+            outputTrains();
+        }
+
+        private void textBoxId_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            char number = e.KeyChar;
+
+            if (!Char.IsDigit(number) && !Char.IsControl(number))
+            {
+                e.Handled = true;
+            }
+        }
+
+        private void maskedTextBoxUserPhone_MaskInputRejected(object sender, MaskInputRejectedEventArgs e)
+        {
+            outputUsers();
+        }
+
+        private void textBoxUserEmail_TextChanged(object sender, EventArgs e)
+        {
+            outputUsers();
+        }
+
+        private void maskedTextBoxUserPhone_TextChanged(object sender, EventArgs e)
+        {
+            outputUsers();
+        }
+
+        private void textBoxId_TextChanged(object sender, EventArgs e)
+        {
+            outputUsers();
+        }
+
+        private void listViewUsers_Click(object sender, EventArgs e)
+        {
+            if (listViewUsers.SelectedItems.Count > 0)
+            {
+                UserForm userForm = new UserForm(Convert.ToInt32(listViewUsers.SelectedItems[0].Tag));
+                userForm.ShowDialog();
+            }
+            listViewUsers.SelectedItems.Clear();
         }
     }
 }

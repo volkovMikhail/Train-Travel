@@ -11,6 +11,7 @@ using Train_Travel.Model;
 using System.Data.SqlClient;
 using System.Configuration;
 using Train_Travel.Utils;
+using System.Drawing.Printing;
 
 namespace Train_Travel
 {
@@ -79,24 +80,38 @@ namespace Train_Travel
                 conn.Open();
                 listViewOrders.Items.Clear();
                 dataReader = cmd.ExecuteReader();
+                List<int> idToDelete = new List<int>();
                 ListViewItem viewItem;
                 float sum = 0;
                 while (dataReader.Read())
                 {
-                    viewItem = new ListViewItem(new string[]
+                    if (Convert.ToDateTime(dataReader[9]) > DateTime.Now)
                     {
-                        Convert.ToString(dataReader[5]),
-                        Convert.ToString(dataReader[6]),
-                        Convert.ToString(dataReader[12]),
-                        Convert.ToDateTime(dataReader[7]).ToShortDateString(),
-                        Convert.ToString(dataReader[8]),
-                        Convert.ToDateTime(dataReader[9]).ToShortDateString(),
-                        Convert.ToString(dataReader[11]),
-                        Convert.ToString(dataReader[3])
-                    });
-                    viewItem.Tag = dataReader[0];
-                    listViewOrders.Items.Add(viewItem);
-                    sum += Convert.ToSingle(dataReader[11]);
+                        viewItem = new ListViewItem(new string[]
+                        {
+                            Convert.ToString(dataReader[5]),
+                            Convert.ToString(dataReader[6]),
+                            Convert.ToString(dataReader[12]),
+                            Convert.ToDateTime(dataReader[7]).ToShortDateString(),
+                            Convert.ToString(dataReader[8]),
+                            Convert.ToDateTime(dataReader[9]).ToString(),
+                            Convert.ToString(dataReader[11]),
+                            Convert.ToString(dataReader[3])
+                        });
+                        viewItem.Tag = dataReader[0];
+                        listViewOrders.Items.Add(viewItem);
+                        sum += Convert.ToSingle(dataReader[11]);
+                    }
+                    else
+                    {
+                        idToDelete.Add(Convert.ToInt32(dataReader[0]));
+                    }
+                }
+                dataReader.Close();
+                foreach (int id in idToDelete)
+                {
+                    cmd = new SqlCommand($"DELETE FROM Orders WHERE id = {id}",conn);
+                    cmd.ExecuteNonQuery();
                 }
                 labelSum.Text = sum.ToString();
                 GC.Collect();
@@ -300,9 +315,50 @@ namespace Train_Travel
             listViewOrders.SelectedItems.Clear();
         }
 
+        string pageBody = "";
         private void печатьToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            //TODO печать
+            if (listViewOrders.SelectedIndices.Count > 0)
+            {
+                pageBody += $"\tTrain Travel\n\tПроездной документ(билет)";
+                pageBody += $"\nНомер билета: {Convert.ToString(listViewOrders.SelectedItems[0].Tag)}";
+                pageBody += $"\nПассажир: {user.lastName} {user.name} {user.middleName} ({user.id})";
+                pageBody += $"\nEmail: {user.email}";
+                pageBody += $"\nТелефон: {user.phone}";
+                pageBody += $"\n\nДата отправления: {listViewOrders.SelectedItems[0].SubItems[3].Text} {listViewOrders.SelectedItems[0].SubItems[4].Text}";
+                pageBody += $"\nПрибытие: {listViewOrders.SelectedItems[0].SubItems[5].Text}";
+                pageBody += $"\nОт: {listViewOrders.SelectedItems[0].SubItems[0].Text}";
+                pageBody += $"\nДО: {listViewOrders.SelectedItems[0].SubItems[1].Text}";
+                pageBody += $"\nТип: {listViewOrders.SelectedItems[0].SubItems[2].Text}";
+                pageBody += $"\nДата покупки: {listViewOrders.SelectedItems[0].SubItems[7].Text}";
+                pageBody += $"\n\nЦена: {listViewOrders.SelectedItems[0].SubItems[6].Text}";
+
+                try
+                {
+                    PrintDocument doc = new PrintDocument();
+                    doc.PrintPage += PrintPageHandler;
+                    printPreviewDialog1.Document = doc;
+                    printPreviewDialog1.ShowDialog();
+                    printDialog1.Document = doc;
+                    if (printDialog1.ShowDialog() == DialogResult.OK)
+                    {
+                        printDialog1.Document.Print();
+                    }
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.Message);
+                }
+            }
+            else
+            {
+                MessageBox.Show("Вы не выбрали билет", "Info", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
+            listViewOrders.SelectedItems.Clear();
+        }
+        void PrintPageHandler(object sender, PrintPageEventArgs e) // for printing handler
+        {
+            e.Graphics.DrawString(pageBody, new Font("Arial", 14), Brushes.Black, 0, 0);
         }
     }
 }

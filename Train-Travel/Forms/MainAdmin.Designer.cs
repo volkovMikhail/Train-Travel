@@ -106,18 +106,33 @@ namespace Train_Travel.Forms
             this.редактироватьToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator2 = new System.Windows.Forms.ToolStripSeparator();
             this.удалитьToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
-            this.buttonAddTrain = new System.Windows.Forms.Button();
-            this.tabPage5 = new System.Windows.Forms.TabPage();
-            this.label10 = new System.Windows.Forms.Label();
-            this.comboBoxTrainBrigade = new System.Windows.Forms.ComboBox();
-            this.comboBoxRepairBrigade = new System.Windows.Forms.ComboBox();
-            this.textBoxTrainId = new System.Windows.Forms.TextBox();
-            this.label11 = new System.Windows.Forms.Label();
-            this.label12 = new System.Windows.Forms.Label();
-            this.label13 = new System.Windows.Forms.Label();
-            this.comboBoxConnPlace = new System.Windows.Forms.ComboBox();
-            this.groupBox8 = new System.Windows.Forms.GroupBox();
             this.button2 = new System.Windows.Forms.Button();
+            this.buttonAddTrain = new System.Windows.Forms.Button();
+            this.groupBox8 = new System.Windows.Forms.GroupBox();
+            this.comboBoxConnPlace = new System.Windows.Forms.ComboBox();
+            this.label13 = new System.Windows.Forms.Label();
+            this.label12 = new System.Windows.Forms.Label();
+            this.label11 = new System.Windows.Forms.Label();
+            this.textBoxTrainId = new System.Windows.Forms.TextBox();
+            this.comboBoxRepairBrigade = new System.Windows.Forms.ComboBox();
+            this.comboBoxTrainBrigade = new System.Windows.Forms.ComboBox();
+            this.label10 = new System.Windows.Forms.Label();
+            this.tabPage5 = new System.Windows.Forms.TabPage();
+            this.splitContainer4 = new System.Windows.Forms.SplitContainer();
+            this.listViewUsers = new System.Windows.Forms.ListView();
+            this.columnHeader27 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnHeader36 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnHeader37 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnHeader38 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnHeader39 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnHeader40 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.groupBox9 = new System.Windows.Forms.GroupBox();
+            this.label16 = new System.Windows.Forms.Label();
+            this.textBoxId = new System.Windows.Forms.TextBox();
+            this.label15 = new System.Windows.Forms.Label();
+            this.textBoxUserEmail = new System.Windows.Forms.TextBox();
+            this.label14 = new System.Windows.Forms.Label();
+            this.maskedTextBoxUserPhone = new System.Windows.Forms.MaskedTextBox();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
@@ -145,6 +160,12 @@ namespace Train_Travel.Forms
             this.splitContainer3.SuspendLayout();
             this.contextMenuStripLokomotiv.SuspendLayout();
             this.groupBox8.SuspendLayout();
+            this.tabPage5.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.splitContainer4)).BeginInit();
+            this.splitContainer4.Panel1.SuspendLayout();
+            this.splitContainer4.Panel2.SuspendLayout();
+            this.splitContainer4.SuspendLayout();
+            this.groupBox9.SuspendLayout();
             this.SuspendLayout();
             // 
             // tabControl1
@@ -217,32 +238,32 @@ namespace Train_Travel.Forms
             // columnHeader1
             // 
             this.columnHeader1.Text = "Место отправления";
-            this.columnHeader1.Width = 139;
+            this.columnHeader1.Width = 120;
             // 
             // columnHeader2
             // 
             this.columnHeader2.Text = "Место прибытия";
-            this.columnHeader2.Width = 132;
+            this.columnHeader2.Width = 115;
             // 
             // columnHeader7
             // 
             this.columnHeader7.Text = "Тип рейса";
-            this.columnHeader7.Width = 107;
+            this.columnHeader7.Width = 84;
             // 
             // columnHeader3
             // 
             this.columnHeader3.Text = "Дата отправления";
-            this.columnHeader3.Width = 112;
+            this.columnHeader3.Width = 108;
             // 
             // columnHeader8
             // 
             this.columnHeader8.Text = "Время отправления";
-            this.columnHeader8.Width = 118;
+            this.columnHeader8.Width = 115;
             // 
             // columnHeader4
             // 
             this.columnHeader4.Text = "Прибытие                 ";
-            this.columnHeader4.Width = 106;
+            this.columnHeader4.Width = 92;
             // 
             // columnHeader5
             // 
@@ -252,11 +273,12 @@ namespace Train_Travel.Forms
             // columnHeader6
             // 
             this.columnHeader6.Text = "Цена";
-            this.columnHeader6.Width = 79;
+            this.columnHeader6.Width = 71;
             // 
             // columnHeader19
             // 
             this.columnHeader19.Text = "Продано";
+            this.columnHeader19.Width = 70;
             // 
             // contextMenuStripVoyages
             // 
@@ -806,24 +828,36 @@ namespace Train_Travel.Forms
             this.toolStripSeparator2,
             this.удалитьToolStripMenuItem1});
             this.contextMenuStripLokomotiv.Name = "contextMenuStripLokomotiv";
-            this.contextMenuStripLokomotiv.Size = new System.Drawing.Size(155, 54);
+            this.contextMenuStripLokomotiv.Size = new System.Drawing.Size(182, 54);
             // 
             // редактироватьToolStripMenuItem1
             // 
             this.редактироватьToolStripMenuItem1.Name = "редактироватьToolStripMenuItem1";
-            this.редактироватьToolStripMenuItem1.Size = new System.Drawing.Size(154, 22);
+            this.редактироватьToolStripMenuItem1.Size = new System.Drawing.Size(181, 22);
             this.редактироватьToolStripMenuItem1.Text = "Редактировать";
+            this.редактироватьToolStripMenuItem1.Click += new System.EventHandler(this.редактироватьToolStripMenuItem1_Click);
             // 
             // toolStripSeparator2
             // 
             this.toolStripSeparator2.Name = "toolStripSeparator2";
-            this.toolStripSeparator2.Size = new System.Drawing.Size(151, 6);
+            this.toolStripSeparator2.Size = new System.Drawing.Size(178, 6);
             // 
             // удалитьToolStripMenuItem1
             // 
             this.удалитьToolStripMenuItem1.Name = "удалитьToolStripMenuItem1";
-            this.удалитьToolStripMenuItem1.Size = new System.Drawing.Size(154, 22);
-            this.удалитьToolStripMenuItem1.Text = "Удалить";
+            this.удалитьToolStripMenuItem1.Size = new System.Drawing.Size(181, 22);
+            this.удалитьToolStripMenuItem1.Text = "Удалить локоматив";
+            this.удалитьToolStripMenuItem1.Click += new System.EventHandler(this.удалитьToolStripMenuItem1_Click);
+            // 
+            // button2
+            // 
+            this.button2.Location = new System.Drawing.Point(572, 51);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(159, 23);
+            this.button2.TabIndex = 4;
+            this.button2.Text = "Добавить вокзал";
+            this.button2.UseVisualStyleBackColor = true;
+            this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
             // buttonAddTrain
             // 
@@ -834,87 +868,6 @@ namespace Train_Travel.Forms
             this.buttonAddTrain.Text = "Добавить локоматив";
             this.buttonAddTrain.UseVisualStyleBackColor = true;
             this.buttonAddTrain.Click += new System.EventHandler(this.buttonAddTrain_Click);
-            // 
-            // tabPage5
-            // 
-            this.tabPage5.Location = new System.Drawing.Point(4, 22);
-            this.tabPage5.Name = "tabPage5";
-            this.tabPage5.Size = new System.Drawing.Size(876, 507);
-            this.tabPage5.TabIndex = 4;
-            this.tabPage5.Text = "Пассажиры";
-            this.tabPage5.UseVisualStyleBackColor = true;
-            // 
-            // label10
-            // 
-            this.label10.AutoSize = true;
-            this.label10.Location = new System.Drawing.Point(19, 32);
-            this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(49, 13);
-            this.label10.TabIndex = 1;
-            this.label10.Text = "Бригада";
-            // 
-            // comboBoxTrainBrigade
-            // 
-            this.comboBoxTrainBrigade.FormattingEnabled = true;
-            this.comboBoxTrainBrigade.Location = new System.Drawing.Point(153, 29);
-            this.comboBoxTrainBrigade.Name = "comboBoxTrainBrigade";
-            this.comboBoxTrainBrigade.Size = new System.Drawing.Size(121, 21);
-            this.comboBoxTrainBrigade.TabIndex = 0;
-            this.comboBoxTrainBrigade.SelectedIndexChanged += new System.EventHandler(this.comboBoxTrainBrigade_SelectedIndexChanged);
-            // 
-            // comboBoxRepairBrigade
-            // 
-            this.comboBoxRepairBrigade.FormattingEnabled = true;
-            this.comboBoxRepairBrigade.Location = new System.Drawing.Point(153, 56);
-            this.comboBoxRepairBrigade.Name = "comboBoxRepairBrigade";
-            this.comboBoxRepairBrigade.Size = new System.Drawing.Size(121, 21);
-            this.comboBoxRepairBrigade.TabIndex = 2;
-            this.comboBoxRepairBrigade.SelectedIndexChanged += new System.EventHandler(this.comboBoxRepairBrigade_SelectedIndexChanged);
-            // 
-            // textBoxTrainId
-            // 
-            this.textBoxTrainId.Location = new System.Drawing.Point(412, 29);
-            this.textBoxTrainId.Name = "textBoxTrainId";
-            this.textBoxTrainId.Size = new System.Drawing.Size(126, 20);
-            this.textBoxTrainId.TabIndex = 3;
-            this.textBoxTrainId.TextChanged += new System.EventHandler(this.textBoxTrainId_TextChanged);
-            this.textBoxTrainId.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textBoxTrainId_KeyPress);
-            // 
-            // label11
-            // 
-            this.label11.AutoSize = true;
-            this.label11.Location = new System.Drawing.Point(297, 32);
-            this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(105, 13);
-            this.label11.TabIndex = 4;
-            this.label11.Text = "Номер локоматива";
-            // 
-            // label12
-            // 
-            this.label12.AutoSize = true;
-            this.label12.Location = new System.Drawing.Point(19, 59);
-            this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(119, 13);
-            this.label12.TabIndex = 5;
-            this.label12.Text = "Бригада ремонтников";
-            // 
-            // label13
-            // 
-            this.label13.AutoSize = true;
-            this.label13.Location = new System.Drawing.Point(297, 59);
-            this.label13.Name = "label13";
-            this.label13.Size = new System.Drawing.Size(44, 13);
-            this.label13.TabIndex = 6;
-            this.label13.Text = "Вокзал";
-            // 
-            // comboBoxConnPlace
-            // 
-            this.comboBoxConnPlace.FormattingEnabled = true;
-            this.comboBoxConnPlace.Location = new System.Drawing.Point(412, 56);
-            this.comboBoxConnPlace.Name = "comboBoxConnPlace";
-            this.comboBoxConnPlace.Size = new System.Drawing.Size(126, 21);
-            this.comboBoxConnPlace.TabIndex = 7;
-            this.comboBoxConnPlace.SelectedIndexChanged += new System.EventHandler(this.comboBox1_SelectedIndexChanged);
             // 
             // groupBox8
             // 
@@ -933,15 +886,225 @@ namespace Train_Travel.Forms
             this.groupBox8.TabStop = false;
             this.groupBox8.Text = "Поиск локоматива";
             // 
-            // button2
+            // comboBoxConnPlace
             // 
-            this.button2.Location = new System.Drawing.Point(572, 51);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(159, 23);
-            this.button2.TabIndex = 4;
-            this.button2.Text = "Добавить вокзал";
-            this.button2.UseVisualStyleBackColor = true;
-            this.button2.Click += new System.EventHandler(this.button2_Click);
+            this.comboBoxConnPlace.FormattingEnabled = true;
+            this.comboBoxConnPlace.Location = new System.Drawing.Point(412, 56);
+            this.comboBoxConnPlace.Name = "comboBoxConnPlace";
+            this.comboBoxConnPlace.Size = new System.Drawing.Size(126, 21);
+            this.comboBoxConnPlace.TabIndex = 7;
+            this.comboBoxConnPlace.SelectedIndexChanged += new System.EventHandler(this.comboBox1_SelectedIndexChanged);
+            // 
+            // label13
+            // 
+            this.label13.AutoSize = true;
+            this.label13.Location = new System.Drawing.Point(297, 59);
+            this.label13.Name = "label13";
+            this.label13.Size = new System.Drawing.Size(44, 13);
+            this.label13.TabIndex = 6;
+            this.label13.Text = "Вокзал";
+            // 
+            // label12
+            // 
+            this.label12.AutoSize = true;
+            this.label12.Location = new System.Drawing.Point(19, 59);
+            this.label12.Name = "label12";
+            this.label12.Size = new System.Drawing.Size(119, 13);
+            this.label12.TabIndex = 5;
+            this.label12.Text = "Бригада ремонтников";
+            // 
+            // label11
+            // 
+            this.label11.AutoSize = true;
+            this.label11.Location = new System.Drawing.Point(297, 32);
+            this.label11.Name = "label11";
+            this.label11.Size = new System.Drawing.Size(105, 13);
+            this.label11.TabIndex = 4;
+            this.label11.Text = "Номер локоматива";
+            // 
+            // textBoxTrainId
+            // 
+            this.textBoxTrainId.Location = new System.Drawing.Point(412, 29);
+            this.textBoxTrainId.Name = "textBoxTrainId";
+            this.textBoxTrainId.Size = new System.Drawing.Size(126, 20);
+            this.textBoxTrainId.TabIndex = 3;
+            this.textBoxTrainId.TextChanged += new System.EventHandler(this.textBoxTrainId_TextChanged);
+            this.textBoxTrainId.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textBoxTrainId_KeyPress);
+            // 
+            // comboBoxRepairBrigade
+            // 
+            this.comboBoxRepairBrigade.FormattingEnabled = true;
+            this.comboBoxRepairBrigade.Location = new System.Drawing.Point(153, 56);
+            this.comboBoxRepairBrigade.Name = "comboBoxRepairBrigade";
+            this.comboBoxRepairBrigade.Size = new System.Drawing.Size(121, 21);
+            this.comboBoxRepairBrigade.TabIndex = 2;
+            this.comboBoxRepairBrigade.SelectedIndexChanged += new System.EventHandler(this.comboBoxRepairBrigade_SelectedIndexChanged);
+            // 
+            // comboBoxTrainBrigade
+            // 
+            this.comboBoxTrainBrigade.FormattingEnabled = true;
+            this.comboBoxTrainBrigade.Location = new System.Drawing.Point(153, 29);
+            this.comboBoxTrainBrigade.Name = "comboBoxTrainBrigade";
+            this.comboBoxTrainBrigade.Size = new System.Drawing.Size(121, 21);
+            this.comboBoxTrainBrigade.TabIndex = 0;
+            this.comboBoxTrainBrigade.SelectedIndexChanged += new System.EventHandler(this.comboBoxTrainBrigade_SelectedIndexChanged);
+            // 
+            // label10
+            // 
+            this.label10.AutoSize = true;
+            this.label10.Location = new System.Drawing.Point(19, 32);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(49, 13);
+            this.label10.TabIndex = 1;
+            this.label10.Text = "Бригада";
+            // 
+            // tabPage5
+            // 
+            this.tabPage5.Controls.Add(this.splitContainer4);
+            this.tabPage5.Location = new System.Drawing.Point(4, 22);
+            this.tabPage5.Name = "tabPage5";
+            this.tabPage5.Size = new System.Drawing.Size(876, 507);
+            this.tabPage5.TabIndex = 4;
+            this.tabPage5.Text = "Пассажиры";
+            this.tabPage5.UseVisualStyleBackColor = true;
+            // 
+            // splitContainer4
+            // 
+            this.splitContainer4.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.splitContainer4.Location = new System.Drawing.Point(0, 0);
+            this.splitContainer4.Name = "splitContainer4";
+            this.splitContainer4.Orientation = System.Windows.Forms.Orientation.Horizontal;
+            // 
+            // splitContainer4.Panel1
+            // 
+            this.splitContainer4.Panel1.Controls.Add(this.listViewUsers);
+            // 
+            // splitContainer4.Panel2
+            // 
+            this.splitContainer4.Panel2.Controls.Add(this.groupBox9);
+            this.splitContainer4.Size = new System.Drawing.Size(876, 507);
+            this.splitContainer4.SplitterDistance = 397;
+            this.splitContainer4.TabIndex = 2;
+            // 
+            // listViewUsers
+            // 
+            this.listViewUsers.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
+            this.columnHeader27,
+            this.columnHeader36,
+            this.columnHeader37,
+            this.columnHeader38,
+            this.columnHeader39,
+            this.columnHeader40});
+            this.listViewUsers.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.listViewUsers.FullRowSelect = true;
+            this.listViewUsers.GridLines = true;
+            this.listViewUsers.HideSelection = false;
+            this.listViewUsers.Location = new System.Drawing.Point(0, 0);
+            this.listViewUsers.MultiSelect = false;
+            this.listViewUsers.Name = "listViewUsers";
+            this.listViewUsers.Size = new System.Drawing.Size(876, 397);
+            this.listViewUsers.TabIndex = 0;
+            this.listViewUsers.UseCompatibleStateImageBehavior = false;
+            this.listViewUsers.View = System.Windows.Forms.View.Details;
+            this.listViewUsers.Click += new System.EventHandler(this.listViewUsers_Click);
+            // 
+            // columnHeader27
+            // 
+            this.columnHeader27.Text = "id";
+            // 
+            // columnHeader36
+            // 
+            this.columnHeader36.Text = "Имя";
+            this.columnHeader36.Width = 164;
+            // 
+            // columnHeader37
+            // 
+            this.columnHeader37.Text = "Фамилия";
+            this.columnHeader37.Width = 158;
+            // 
+            // columnHeader38
+            // 
+            this.columnHeader38.Text = "Отчество";
+            this.columnHeader38.Width = 157;
+            // 
+            // columnHeader39
+            // 
+            this.columnHeader39.Text = "Телефон";
+            this.columnHeader39.Width = 140;
+            // 
+            // columnHeader40
+            // 
+            this.columnHeader40.Text = "Email";
+            this.columnHeader40.Width = 192;
+            // 
+            // groupBox9
+            // 
+            this.groupBox9.Controls.Add(this.label16);
+            this.groupBox9.Controls.Add(this.textBoxId);
+            this.groupBox9.Controls.Add(this.label15);
+            this.groupBox9.Controls.Add(this.textBoxUserEmail);
+            this.groupBox9.Controls.Add(this.label14);
+            this.groupBox9.Controls.Add(this.maskedTextBoxUserPhone);
+            this.groupBox9.Location = new System.Drawing.Point(3, 3);
+            this.groupBox9.Name = "groupBox9";
+            this.groupBox9.Size = new System.Drawing.Size(396, 100);
+            this.groupBox9.TabIndex = 0;
+            this.groupBox9.TabStop = false;
+            this.groupBox9.Text = "Поиск";
+            // 
+            // label16
+            // 
+            this.label16.AutoSize = true;
+            this.label16.Location = new System.Drawing.Point(239, 33);
+            this.label16.Name = "label16";
+            this.label16.Size = new System.Drawing.Size(18, 13);
+            this.label16.TabIndex = 10;
+            this.label16.Text = "ID";
+            // 
+            // textBoxId
+            // 
+            this.textBoxId.Location = new System.Drawing.Point(263, 30);
+            this.textBoxId.Name = "textBoxId";
+            this.textBoxId.Size = new System.Drawing.Size(87, 20);
+            this.textBoxId.TabIndex = 9;
+            this.textBoxId.TextChanged += new System.EventHandler(this.textBoxId_TextChanged);
+            this.textBoxId.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textBoxId_KeyPress);
+            // 
+            // label15
+            // 
+            this.label15.AutoSize = true;
+            this.label15.Location = new System.Drawing.Point(33, 59);
+            this.label15.Name = "label15";
+            this.label15.Size = new System.Drawing.Size(32, 13);
+            this.label15.TabIndex = 8;
+            this.label15.Text = "Email";
+            // 
+            // textBoxUserEmail
+            // 
+            this.textBoxUserEmail.Location = new System.Drawing.Point(91, 56);
+            this.textBoxUserEmail.Name = "textBoxUserEmail";
+            this.textBoxUserEmail.Size = new System.Drawing.Size(108, 20);
+            this.textBoxUserEmail.TabIndex = 7;
+            this.textBoxUserEmail.TextChanged += new System.EventHandler(this.textBoxUserEmail_TextChanged);
+            // 
+            // label14
+            // 
+            this.label14.AutoSize = true;
+            this.label14.Location = new System.Drawing.Point(33, 33);
+            this.label14.Name = "label14";
+            this.label14.Size = new System.Drawing.Size(52, 13);
+            this.label14.TabIndex = 6;
+            this.label14.Text = "Телефон";
+            // 
+            // maskedTextBoxUserPhone
+            // 
+            this.maskedTextBoxUserPhone.Location = new System.Drawing.Point(91, 30);
+            this.maskedTextBoxUserPhone.Mask = "+375(00)000-00-00";
+            this.maskedTextBoxUserPhone.Name = "maskedTextBoxUserPhone";
+            this.maskedTextBoxUserPhone.Size = new System.Drawing.Size(108, 20);
+            this.maskedTextBoxUserPhone.TabIndex = 5;
+            this.maskedTextBoxUserPhone.MaskInputRejected += new System.Windows.Forms.MaskInputRejectedEventHandler(this.maskedTextBoxUserPhone_MaskInputRejected);
+            this.maskedTextBoxUserPhone.TextChanged += new System.EventHandler(this.maskedTextBoxUserPhone_TextChanged);
             // 
             // MainAdmin
             // 
@@ -990,6 +1153,13 @@ namespace Train_Travel.Forms
             this.contextMenuStripLokomotiv.ResumeLayout(false);
             this.groupBox8.ResumeLayout(false);
             this.groupBox8.PerformLayout();
+            this.tabPage5.ResumeLayout(false);
+            this.splitContainer4.Panel1.ResumeLayout(false);
+            this.splitContainer4.Panel2.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.splitContainer4)).EndInit();
+            this.splitContainer4.ResumeLayout(false);
+            this.groupBox9.ResumeLayout(false);
+            this.groupBox9.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -1083,5 +1253,20 @@ namespace Train_Travel.Forms
         private System.Windows.Forms.ComboBox comboBoxTrainBrigade;
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.SplitContainer splitContainer4;
+        private System.Windows.Forms.ListView listViewUsers;
+        private System.Windows.Forms.ColumnHeader columnHeader27;
+        private System.Windows.Forms.ColumnHeader columnHeader36;
+        private System.Windows.Forms.ColumnHeader columnHeader37;
+        private System.Windows.Forms.ColumnHeader columnHeader38;
+        private System.Windows.Forms.ColumnHeader columnHeader39;
+        private System.Windows.Forms.ColumnHeader columnHeader40;
+        private System.Windows.Forms.GroupBox groupBox9;
+        private System.Windows.Forms.Label label14;
+        private System.Windows.Forms.MaskedTextBox maskedTextBoxUserPhone;
+        private System.Windows.Forms.Label label15;
+        private System.Windows.Forms.TextBox textBoxUserEmail;
+        private System.Windows.Forms.Label label16;
+        private System.Windows.Forms.TextBox textBoxId;
     }
 }

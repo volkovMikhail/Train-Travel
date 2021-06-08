@@ -31,4 +31,11 @@ namespace Train_Travel.Utils
         public string id;
         public string place;
     }
+
+    public struct userParams
+    {
+        public string id;
+        public string phone;
+        public string email;
+    }
 }
