@@ -9,6 +9,23 @@ namespace Train_Travel.Utils
 {
     class QueryBuilder
     {
+        public static string med(medParams med)
+        {
+            string cmd = "SELECT med.id,name,lastname,middlename,phone,med.date,workers.id FROM Med FULL OUTER JOIN Workers ON med.workerid = Workers.id WHERE med.id > -1 ";
+            if (med.onYear)
+            {
+                cmd += $"AND YEAR(med.date) = '{med.date.Year}' ";
+            }
+            if (med.phone.Trim().Length > 15)
+            {
+                cmd += $"AND Workers.phone LIKE N'%{med.phone.Trim()}%'";
+            }
+            if (med.whoHaveNot)
+            {
+                cmd = $"SELECT med.id,name,lastName,middleName,phone,med.date,Workers.Id from Workers FUll outer join MED ON med.WorkerID = Workers.Id;";
+            }
+            return cmd;
+        }
         public static string query(queryParams QP)
         {
             string cmd = "SELECT * FROM Voyage WHERE type LIKE N'%' ";
@@ -32,6 +49,10 @@ namespace Train_Travel.Utils
             {
                 cmd += $"AND price <= {QP.endPrice} ";
             }
+            if (QP.sell)
+            {
+                cmd += $"AND (time < '{DateTime.Now.TimeOfDay}' OR startDate < '{DateTime.Now.Year}-{DateTime.Now.Month}-{DateTime.Now.Day}') ";
+            }
             return cmd;
         }
 
@@ -45,11 +66,6 @@ namespace Train_Travel.Utils
             if (WP.brigada != "Все")
             {
                 cmd += $"AND brigada = N'{WP.brigada}' ";
-            }
-            if (WP.med)
-            {
-                DateTime date = DateTime.Now.AddYears(-1);
-                cmd += $"AND medDate < '{date.Year}-{date.Month}-{date.Day}' ";
             }
             if (WP.phone.Trim().Length > 15)
             {
@@ -77,6 +93,7 @@ namespace Train_Travel.Utils
             {
                 cmd += $" AND brigade = N'{tp.brigade}'";
             }
+            cmd += $" ORDER BY completed DESC";
             return cmd;
         }
 

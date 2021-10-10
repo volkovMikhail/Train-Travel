@@ -34,12 +34,10 @@ namespace Train_Travel.Forms
             this.maskedTextBox2 = new System.Windows.Forms.MaskedTextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.button1 = new System.Windows.Forms.Button();
-            this.label8 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
-            this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
             this.textBoxZP = new System.Windows.Forms.TextBox();
             this.textBoxMiddle = new System.Windows.Forms.TextBox();
             this.textBoxLastname = new System.Windows.Forms.TextBox();
@@ -50,6 +48,9 @@ namespace Train_Travel.Forms
             this.comboBoxOtdel = new System.Windows.Forms.ComboBox();
             this.comboBoxBrigade = new System.Windows.Forms.ComboBox();
             this.textBoxName = new System.Windows.Forms.TextBox();
+            this.listView1 = new System.Windows.Forms.ListView();
+            this.columnHeader1 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.label2 = new System.Windows.Forms.Label();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -58,12 +59,10 @@ namespace Train_Travel.Forms
             this.groupBox1.Controls.Add(this.maskedTextBox2);
             this.groupBox1.Controls.Add(this.label1);
             this.groupBox1.Controls.Add(this.button1);
-            this.groupBox1.Controls.Add(this.label8);
             this.groupBox1.Controls.Add(this.label7);
             this.groupBox1.Controls.Add(this.label6);
             this.groupBox1.Controls.Add(this.label5);
             this.groupBox1.Controls.Add(this.label4);
-            this.groupBox1.Controls.Add(this.dateTimePicker1);
             this.groupBox1.Controls.Add(this.textBoxZP);
             this.groupBox1.Controls.Add(this.textBoxMiddle);
             this.groupBox1.Controls.Add(this.textBoxLastname);
@@ -76,7 +75,7 @@ namespace Train_Travel.Forms
             this.groupBox1.Controls.Add(this.textBoxName);
             this.groupBox1.Location = new System.Drawing.Point(12, 12);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(311, 343);
+            this.groupBox1.Size = new System.Drawing.Size(311, 307);
             this.groupBox1.TabIndex = 0;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Данные работника";
@@ -100,22 +99,13 @@ namespace Train_Travel.Forms
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(35, 304);
+            this.button1.Location = new System.Drawing.Point(35, 261);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(250, 23);
             this.button1.TabIndex = 9;
             this.button1.Text = "Добавить";
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Click += new System.EventHandler(this.button1_Click);
-            // 
-            // label8
-            // 
-            this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(32, 255);
-            this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(161, 13);
-            this.label8.TabIndex = 15;
-            this.label8.Text = "Дата последнего медосмотра";
             // 
             // label7
             // 
@@ -152,13 +142,6 @@ namespace Train_Travel.Forms
             this.label4.Size = new System.Drawing.Size(29, 13);
             this.label4.TabIndex = 11;
             this.label4.Text = "Имя";
-            // 
-            // dateTimePicker1
-            // 
-            this.dateTimePicker1.Location = new System.Drawing.Point(35, 271);
-            this.dateTimePicker1.Name = "dateTimePicker1";
-            this.dateTimePicker1.Size = new System.Drawing.Size(250, 20);
-            this.dateTimePicker1.TabIndex = 8;
             // 
             // textBoxZP
             // 
@@ -252,11 +235,40 @@ namespace Train_Travel.Forms
             this.textBoxName.Size = new System.Drawing.Size(154, 20);
             this.textBoxName.TabIndex = 3;
             // 
+            // listView1
+            // 
+            this.listView1.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
+            this.columnHeader1});
+            this.listView1.GridLines = true;
+            this.listView1.HideSelection = false;
+            this.listView1.Location = new System.Drawing.Point(329, 44);
+            this.listView1.Name = "listView1";
+            this.listView1.Size = new System.Drawing.Size(150, 274);
+            this.listView1.TabIndex = 1;
+            this.listView1.UseCompatibleStateImageBehavior = false;
+            this.listView1.View = System.Windows.Forms.View.Details;
+            // 
+            // columnHeader1
+            // 
+            this.columnHeader1.Text = "Дата";
+            this.columnHeader1.Width = 143;
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(329, 28);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(107, 13);
+            this.label2.TabIndex = 19;
+            this.label2.Text = "Даты медосмотров";
+            // 
             // addWorker
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(335, 367);
+            this.ClientSize = new System.Drawing.Size(491, 330);
+            this.Controls.Add(this.label2);
+            this.Controls.Add(this.listView1);
             this.Controls.Add(this.groupBox1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
@@ -268,6 +280,7 @@ namespace Train_Travel.Forms
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -284,14 +297,15 @@ namespace Train_Travel.Forms
         private System.Windows.Forms.TextBox textBoxZP;
         private System.Windows.Forms.TextBox textBoxMiddle;
         private System.Windows.Forms.TextBox textBoxLastname;
-        private System.Windows.Forms.Label label8;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.DateTimePicker dateTimePicker1;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.MaskedTextBox maskedTextBox2;
+        private System.Windows.Forms.ListView listView1;
+        private System.Windows.Forms.ColumnHeader columnHeader1;
+        private System.Windows.Forms.Label label2;
     }
 }

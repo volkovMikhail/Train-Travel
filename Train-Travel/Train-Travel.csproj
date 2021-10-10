@@ -70,6 +70,12 @@
     <Compile Include="Forms\addBrigade.Designer.cs">
       <DependentUpon>addBrigade.cs</DependentUpon>
     </Compile>
+    <Compile Include="Forms\addMed.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\addMed.Designer.cs">
+      <DependentUpon>addMed.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forms\addPlace.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -118,6 +124,12 @@
     <Compile Include="Forms\MainUser.Designer.cs">
       <DependentUpon>MainUser.cs</DependentUpon>
     </Compile>
+    <Compile Include="Forms\pickWorker.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\pickWorker.Designer.cs">
+      <DependentUpon>pickWorker.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forms\Registration.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -144,6 +156,9 @@
     <EmbeddedResource Include="Forms\addBrigade.resx">
       <DependentUpon>addBrigade.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Forms\addMed.resx">
+      <DependentUpon>addMed.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Forms\addPlace.resx">
       <DependentUpon>addPlace.cs</DependentUpon>
     </EmbeddedResource>
@@ -167,6 +182,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\MainUser.resx">
       <DependentUpon>MainUser.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\pickWorker.resx">
+      <DependentUpon>pickWorker.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\Registration.resx">
       <DependentUpon>Registration.cs</DependentUpon>

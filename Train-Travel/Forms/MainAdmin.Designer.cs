@@ -47,6 +47,7 @@ namespace Train_Travel.Forms
             this.contextMenuStripVoyages = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.удалитьРейсToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.checkBoxDontSell = new System.Windows.Forms.CheckBox();
             this.button1 = new System.Windows.Forms.Button();
             this.groupBox4 = new System.Windows.Forms.GroupBox();
             this.label4 = new System.Windows.Forms.Label();
@@ -73,16 +74,16 @@ namespace Train_Travel.Forms
             this.columnHeader14 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader15 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader16 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.columnHeader17 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.contextMenuStripWorkers = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.редактироватьToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
             this.удалитьToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.labelZP = new System.Windows.Forms.Label();
+            this.label18 = new System.Windows.Forms.Label();
+            this.labelQueryCount = new System.Windows.Forms.Label();
+            this.label17 = new System.Windows.Forms.Label();
             this.button3 = new System.Windows.Forms.Button();
             this.buttonAddWorker = new System.Windows.Forms.Button();
-            this.groupBox7 = new System.Windows.Forms.GroupBox();
-            this.label9 = new System.Windows.Forms.Label();
-            this.checkBoxMed = new System.Windows.Forms.CheckBox();
             this.groupBox6 = new System.Windows.Forms.GroupBox();
             this.label8 = new System.Windows.Forms.Label();
             this.maskedTextBoxPhoneSearchWorker = new System.Windows.Forms.MaskedTextBox();
@@ -106,6 +107,8 @@ namespace Train_Travel.Forms
             this.редактироватьToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator2 = new System.Windows.Forms.ToolStripSeparator();
             this.удалитьToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
+            this.labelCountTrains = new System.Windows.Forms.Label();
+            this.label19 = new System.Windows.Forms.Label();
             this.button2 = new System.Windows.Forms.Button();
             this.buttonAddTrain = new System.Windows.Forms.Button();
             this.groupBox8 = new System.Windows.Forms.GroupBox();
@@ -133,6 +136,27 @@ namespace Train_Travel.Forms
             this.textBoxUserEmail = new System.Windows.Forms.TextBox();
             this.label14 = new System.Windows.Forms.Label();
             this.maskedTextBoxUserPhone = new System.Windows.Forms.MaskedTextBox();
+            this.tabPage3 = new System.Windows.Forms.TabPage();
+            this.splitContainer5 = new System.Windows.Forms.SplitContainer();
+            this.listViewMed = new System.Windows.Forms.ListView();
+            this.columnHeader25 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnHeader26 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnHeader41 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnHeader42 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.Medcount = new System.Windows.Forms.Label();
+            this.label21 = new System.Windows.Forms.Label();
+            this.button4 = new System.Windows.Forms.Button();
+            this.groupBox11 = new System.Windows.Forms.GroupBox();
+            this.label20 = new System.Windows.Forms.Label();
+            this.maskedTextBoxMed = new System.Windows.Forms.MaskedTextBox();
+            this.groupBox10 = new System.Windows.Forms.GroupBox();
+            this.checkBoxOnYearWhoHaveNot = new System.Windows.Forms.CheckBox();
+            this.checkBoxOnYear = new System.Windows.Forms.CheckBox();
+            this.dateTimePickerMed = new System.Windows.Forms.DateTimePicker();
+            this.contextMenuStripMed = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.редактироватьToolStripMenuItem2 = new System.Windows.Forms.ToolStripMenuItem();
+            this.удалитьЗаписьToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripSeparator3 = new System.Windows.Forms.ToolStripSeparator();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
@@ -150,7 +174,6 @@ namespace Train_Travel.Forms
             this.splitContainer2.Panel2.SuspendLayout();
             this.splitContainer2.SuspendLayout();
             this.contextMenuStripWorkers.SuspendLayout();
-            this.groupBox7.SuspendLayout();
             this.groupBox6.SuspendLayout();
             this.groupBox5.SuspendLayout();
             this.tabPage4.SuspendLayout();
@@ -166,6 +189,14 @@ namespace Train_Travel.Forms
             this.splitContainer4.Panel2.SuspendLayout();
             this.splitContainer4.SuspendLayout();
             this.groupBox9.SuspendLayout();
+            this.tabPage3.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.splitContainer5)).BeginInit();
+            this.splitContainer5.Panel1.SuspendLayout();
+            this.splitContainer5.Panel2.SuspendLayout();
+            this.splitContainer5.SuspendLayout();
+            this.groupBox11.SuspendLayout();
+            this.groupBox10.SuspendLayout();
+            this.contextMenuStripMed.SuspendLayout();
             this.SuspendLayout();
             // 
             // tabControl1
@@ -174,6 +205,7 @@ namespace Train_Travel.Forms
             this.tabControl1.Controls.Add(this.tabPage2);
             this.tabControl1.Controls.Add(this.tabPage4);
             this.tabControl1.Controls.Add(this.tabPage5);
+            this.tabControl1.Controls.Add(this.tabPage3);
             this.tabControl1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tabControl1.Location = new System.Drawing.Point(0, 0);
             this.tabControl1.Name = "tabControl1";
@@ -296,6 +328,7 @@ namespace Train_Travel.Forms
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.checkBoxDontSell);
             this.groupBox1.Controls.Add(this.button1);
             this.groupBox1.Controls.Add(this.groupBox4);
             this.groupBox1.Controls.Add(this.groupBox3);
@@ -305,6 +338,17 @@ namespace Train_Travel.Forms
             this.groupBox1.Size = new System.Drawing.Size(862, 117);
             this.groupBox1.TabIndex = 0;
             this.groupBox1.TabStop = false;
+            // 
+            // checkBoxDontSell
+            // 
+            this.checkBoxDontSell.AutoSize = true;
+            this.checkBoxDontSell.Location = new System.Drawing.Point(713, 44);
+            this.checkBoxDontSell.Name = "checkBoxDontSell";
+            this.checkBoxDontSell.Size = new System.Drawing.Size(144, 17);
+            this.checkBoxDontSell.TabIndex = 6;
+            this.checkBoxDontSell.Text = "Невыкупленные рейсы";
+            this.checkBoxDontSell.UseVisualStyleBackColor = true;
+            this.checkBoxDontSell.CheckedChanged += new System.EventHandler(this.checkBox2_CheckedChanged);
             // 
             // button1
             // 
@@ -481,9 +525,12 @@ namespace Train_Travel.Forms
             // 
             // splitContainer2.Panel2
             // 
+            this.splitContainer2.Panel2.Controls.Add(this.labelZP);
+            this.splitContainer2.Panel2.Controls.Add(this.label18);
+            this.splitContainer2.Panel2.Controls.Add(this.labelQueryCount);
+            this.splitContainer2.Panel2.Controls.Add(this.label17);
             this.splitContainer2.Panel2.Controls.Add(this.button3);
             this.splitContainer2.Panel2.Controls.Add(this.buttonAddWorker);
-            this.splitContainer2.Panel2.Controls.Add(this.groupBox7);
             this.splitContainer2.Panel2.Controls.Add(this.groupBox6);
             this.splitContainer2.Panel2.Controls.Add(this.groupBox5);
             this.splitContainer2.Size = new System.Drawing.Size(870, 501);
@@ -500,8 +547,7 @@ namespace Train_Travel.Forms
             this.columnHeader13,
             this.columnHeader14,
             this.columnHeader15,
-            this.columnHeader16,
-            this.columnHeader17});
+            this.columnHeader16});
             this.listViewWorkers.ContextMenuStrip = this.contextMenuStripWorkers;
             this.listViewWorkers.Dock = System.Windows.Forms.DockStyle.Fill;
             this.listViewWorkers.FullRowSelect = true;
@@ -538,27 +584,22 @@ namespace Train_Travel.Forms
             // columnHeader13
             // 
             this.columnHeader13.Text = "Отчество";
-            this.columnHeader13.Width = 110;
+            this.columnHeader13.Width = 127;
             // 
             // columnHeader14
             // 
             this.columnHeader14.Text = "Телефон";
-            this.columnHeader14.Width = 113;
+            this.columnHeader14.Width = 124;
             // 
             // columnHeader15
             // 
             this.columnHeader15.Text = "Зарплата";
-            this.columnHeader15.Width = 69;
+            this.columnHeader15.Width = 105;
             // 
             // columnHeader16
             // 
             this.columnHeader16.Text = "Тип";
-            this.columnHeader16.Width = 70;
-            // 
-            // columnHeader17
-            // 
-            this.columnHeader17.Text = "Дата медосмотра";
-            this.columnHeader17.Width = 105;
+            this.columnHeader16.Width = 111;
             // 
             // contextMenuStripWorkers
             // 
@@ -588,9 +629,45 @@ namespace Train_Travel.Forms
             this.удалитьToolStripMenuItem.Text = "Удалить работника";
             this.удалитьToolStripMenuItem.Click += new System.EventHandler(this.удалитьToolStripMenuItem_Click);
             // 
+            // labelZP
+            // 
+            this.labelZP.AutoSize = true;
+            this.labelZP.Location = new System.Drawing.Point(560, 28);
+            this.labelZP.Name = "labelZP";
+            this.labelZP.Size = new System.Drawing.Size(13, 13);
+            this.labelZP.TabIndex = 10;
+            this.labelZP.Text = "_";
+            // 
+            // label18
+            // 
+            this.label18.AutoSize = true;
+            this.label18.Location = new System.Drawing.Point(485, 28);
+            this.label18.Name = "label18";
+            this.label18.Size = new System.Drawing.Size(76, 13);
+            this.label18.TabIndex = 9;
+            this.label18.Text = "Cр. зарплата:";
+            // 
+            // labelQueryCount
+            // 
+            this.labelQueryCount.AutoSize = true;
+            this.labelQueryCount.Location = new System.Drawing.Point(560, 11);
+            this.labelQueryCount.Name = "labelQueryCount";
+            this.labelQueryCount.Size = new System.Drawing.Size(13, 13);
+            this.labelQueryCount.TabIndex = 8;
+            this.labelQueryCount.Text = "_";
+            // 
+            // label17
+            // 
+            this.label17.AutoSize = true;
+            this.label17.Location = new System.Drawing.Point(485, 11);
+            this.label17.Name = "label17";
+            this.label17.Size = new System.Drawing.Size(69, 13);
+            this.label17.TabIndex = 7;
+            this.label17.Text = "Количество:";
+            // 
             // button3
             // 
-            this.button3.Location = new System.Drawing.Point(712, 47);
+            this.button3.Location = new System.Drawing.Point(485, 46);
             this.button3.Name = "button3";
             this.button3.Size = new System.Drawing.Size(153, 23);
             this.button3.TabIndex = 5;
@@ -600,44 +677,13 @@ namespace Train_Travel.Forms
             // 
             // buttonAddWorker
             // 
-            this.buttonAddWorker.Location = new System.Drawing.Point(712, 76);
+            this.buttonAddWorker.Location = new System.Drawing.Point(485, 75);
             this.buttonAddWorker.Name = "buttonAddWorker";
             this.buttonAddWorker.Size = new System.Drawing.Size(153, 23);
             this.buttonAddWorker.TabIndex = 6;
             this.buttonAddWorker.Text = "Добавить работника";
             this.buttonAddWorker.UseVisualStyleBackColor = true;
             this.buttonAddWorker.Click += new System.EventHandler(this.buttonAddWorker_Click);
-            // 
-            // groupBox7
-            // 
-            this.groupBox7.Controls.Add(this.label9);
-            this.groupBox7.Controls.Add(this.checkBoxMed);
-            this.groupBox7.Location = new System.Drawing.Point(485, 3);
-            this.groupBox7.Name = "groupBox7";
-            this.groupBox7.Size = new System.Drawing.Size(221, 96);
-            this.groupBox7.TabIndex = 2;
-            this.groupBox7.TabStop = false;
-            this.groupBox7.Text = "Медосмотр";
-            // 
-            // label9
-            // 
-            this.label9.AutoSize = true;
-            this.label9.Location = new System.Drawing.Point(36, 49);
-            this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(69, 13);
-            this.label9.TabIndex = 5;
-            this.label9.Text = "(1 раз в год)";
-            // 
-            // checkBoxMed
-            // 
-            this.checkBoxMed.AutoSize = true;
-            this.checkBoxMed.Location = new System.Drawing.Point(18, 33);
-            this.checkBoxMed.Name = "checkBoxMed";
-            this.checkBoxMed.Size = new System.Drawing.Size(187, 17);
-            this.checkBoxMed.TabIndex = 4;
-            this.checkBoxMed.Text = "Необходимо пройти медосмотр";
-            this.checkBoxMed.UseVisualStyleBackColor = true;
-            this.checkBoxMed.CheckedChanged += new System.EventHandler(this.checkBoxMed_CheckedChanged);
             // 
             // groupBox6
             // 
@@ -750,6 +796,8 @@ namespace Train_Travel.Forms
             // 
             // splitContainer3.Panel2
             // 
+            this.splitContainer3.Panel2.Controls.Add(this.labelCountTrains);
+            this.splitContainer3.Panel2.Controls.Add(this.label19);
             this.splitContainer3.Panel2.Controls.Add(this.button2);
             this.splitContainer3.Panel2.Controls.Add(this.buttonAddTrain);
             this.splitContainer3.Panel2.Controls.Add(this.groupBox8);
@@ -848,6 +896,24 @@ namespace Train_Travel.Forms
             this.удалитьToolStripMenuItem1.Size = new System.Drawing.Size(181, 22);
             this.удалитьToolStripMenuItem1.Text = "Удалить локоматив";
             this.удалитьToolStripMenuItem1.Click += new System.EventHandler(this.удалитьToolStripMenuItem1_Click);
+            // 
+            // labelCountTrains
+            // 
+            this.labelCountTrains.AutoSize = true;
+            this.labelCountTrains.Location = new System.Drawing.Point(647, 32);
+            this.labelCountTrains.Name = "labelCountTrains";
+            this.labelCountTrains.Size = new System.Drawing.Size(13, 13);
+            this.labelCountTrains.TabIndex = 6;
+            this.labelCountTrains.Text = "_";
+            // 
+            // label19
+            // 
+            this.label19.AutoSize = true;
+            this.label19.Location = new System.Drawing.Point(572, 32);
+            this.label19.Name = "label19";
+            this.label19.Size = new System.Drawing.Size(69, 13);
+            this.label19.TabIndex = 5;
+            this.label19.Text = "Количество:";
             // 
             // button2
             // 
@@ -1106,6 +1172,211 @@ namespace Train_Travel.Forms
             this.maskedTextBoxUserPhone.MaskInputRejected += new System.Windows.Forms.MaskInputRejectedEventHandler(this.maskedTextBoxUserPhone_MaskInputRejected);
             this.maskedTextBoxUserPhone.TextChanged += new System.EventHandler(this.maskedTextBoxUserPhone_TextChanged);
             // 
+            // tabPage3
+            // 
+            this.tabPage3.Controls.Add(this.splitContainer5);
+            this.tabPage3.Location = new System.Drawing.Point(4, 22);
+            this.tabPage3.Name = "tabPage3";
+            this.tabPage3.Size = new System.Drawing.Size(876, 507);
+            this.tabPage3.TabIndex = 5;
+            this.tabPage3.Text = "Медосмотры";
+            this.tabPage3.UseVisualStyleBackColor = true;
+            // 
+            // splitContainer5
+            // 
+            this.splitContainer5.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.splitContainer5.Location = new System.Drawing.Point(0, 0);
+            this.splitContainer5.Name = "splitContainer5";
+            this.splitContainer5.Orientation = System.Windows.Forms.Orientation.Horizontal;
+            // 
+            // splitContainer5.Panel1
+            // 
+            this.splitContainer5.Panel1.Controls.Add(this.listViewMed);
+            // 
+            // splitContainer5.Panel2
+            // 
+            this.splitContainer5.Panel2.Controls.Add(this.Medcount);
+            this.splitContainer5.Panel2.Controls.Add(this.label21);
+            this.splitContainer5.Panel2.Controls.Add(this.button4);
+            this.splitContainer5.Panel2.Controls.Add(this.groupBox11);
+            this.splitContainer5.Panel2.Controls.Add(this.groupBox10);
+            this.splitContainer5.Panel2.Paint += new System.Windows.Forms.PaintEventHandler(this.splitContainer5_Panel2_Paint);
+            this.splitContainer5.Size = new System.Drawing.Size(876, 507);
+            this.splitContainer5.SplitterDistance = 397;
+            this.splitContainer5.TabIndex = 3;
+            // 
+            // listViewMed
+            // 
+            this.listViewMed.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
+            this.columnHeader25,
+            this.columnHeader26,
+            this.columnHeader41,
+            this.columnHeader42});
+            this.listViewMed.ContextMenuStrip = this.contextMenuStripMed;
+            this.listViewMed.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.listViewMed.FullRowSelect = true;
+            this.listViewMed.GridLines = true;
+            this.listViewMed.HideSelection = false;
+            this.listViewMed.Location = new System.Drawing.Point(0, 0);
+            this.listViewMed.MultiSelect = false;
+            this.listViewMed.Name = "listViewMed";
+            this.listViewMed.Size = new System.Drawing.Size(876, 397);
+            this.listViewMed.TabIndex = 0;
+            this.listViewMed.UseCompatibleStateImageBehavior = false;
+            this.listViewMed.View = System.Windows.Forms.View.Details;
+            this.listViewMed.Click += new System.EventHandler(this.listViewMed_Click);
+            // 
+            // columnHeader25
+            // 
+            this.columnHeader25.Text = "Номер записи";
+            this.columnHeader25.Width = 103;
+            // 
+            // columnHeader26
+            // 
+            this.columnHeader26.Text = "ФИО";
+            this.columnHeader26.Width = 413;
+            // 
+            // columnHeader41
+            // 
+            this.columnHeader41.Text = "Телефон";
+            this.columnHeader41.Width = 213;
+            // 
+            // columnHeader42
+            // 
+            this.columnHeader42.Text = "Дата";
+            this.columnHeader42.Width = 141;
+            // 
+            // Medcount
+            // 
+            this.Medcount.AutoSize = true;
+            this.Medcount.Location = new System.Drawing.Point(606, 13);
+            this.Medcount.Name = "Medcount";
+            this.Medcount.Size = new System.Drawing.Size(13, 13);
+            this.Medcount.TabIndex = 4;
+            this.Medcount.Text = "_";
+            // 
+            // label21
+            // 
+            this.label21.AutoSize = true;
+            this.label21.Location = new System.Drawing.Point(531, 13);
+            this.label21.Name = "label21";
+            this.label21.Size = new System.Drawing.Size(69, 13);
+            this.label21.TabIndex = 3;
+            this.label21.Text = "Количество:";
+            // 
+            // button4
+            // 
+            this.button4.Location = new System.Drawing.Point(531, 80);
+            this.button4.Name = "button4";
+            this.button4.Size = new System.Drawing.Size(153, 23);
+            this.button4.TabIndex = 2;
+            this.button4.Text = "Добавить медосмотр";
+            this.button4.UseVisualStyleBackColor = true;
+            this.button4.Click += new System.EventHandler(this.button4_Click);
+            // 
+            // groupBox11
+            // 
+            this.groupBox11.Controls.Add(this.label20);
+            this.groupBox11.Controls.Add(this.maskedTextBoxMed);
+            this.groupBox11.Location = new System.Drawing.Point(325, 3);
+            this.groupBox11.Name = "groupBox11";
+            this.groupBox11.Size = new System.Drawing.Size(200, 100);
+            this.groupBox11.TabIndex = 1;
+            this.groupBox11.TabStop = false;
+            this.groupBox11.Text = "Поиск";
+            // 
+            // label20
+            // 
+            this.label20.AutoSize = true;
+            this.label20.Location = new System.Drawing.Point(17, 30);
+            this.label20.Name = "label20";
+            this.label20.Size = new System.Drawing.Size(52, 13);
+            this.label20.TabIndex = 7;
+            this.label20.Text = "Телефон";
+            // 
+            // maskedTextBoxMed
+            // 
+            this.maskedTextBoxMed.Location = new System.Drawing.Point(75, 27);
+            this.maskedTextBoxMed.Mask = "+375(00)000-00-00";
+            this.maskedTextBoxMed.Name = "maskedTextBoxMed";
+            this.maskedTextBoxMed.Size = new System.Drawing.Size(108, 20);
+            this.maskedTextBoxMed.TabIndex = 6;
+            this.maskedTextBoxMed.TextChanged += new System.EventHandler(this.maskedTextBoxMed_TextChanged);
+            // 
+            // groupBox10
+            // 
+            this.groupBox10.Controls.Add(this.checkBoxOnYearWhoHaveNot);
+            this.groupBox10.Controls.Add(this.checkBoxOnYear);
+            this.groupBox10.Controls.Add(this.dateTimePickerMed);
+            this.groupBox10.Location = new System.Drawing.Point(3, 3);
+            this.groupBox10.Name = "groupBox10";
+            this.groupBox10.Size = new System.Drawing.Size(316, 100);
+            this.groupBox10.TabIndex = 0;
+            this.groupBox10.TabStop = false;
+            this.groupBox10.Text = "Дата";
+            // 
+            // checkBoxOnYearWhoHaveNot
+            // 
+            this.checkBoxOnYearWhoHaveNot.AutoSize = true;
+            this.checkBoxOnYearWhoHaveNot.Location = new System.Drawing.Point(29, 63);
+            this.checkBoxOnYearWhoHaveNot.Name = "checkBoxOnYearWhoHaveNot";
+            this.checkBoxOnYearWhoHaveNot.Size = new System.Drawing.Size(228, 17);
+            this.checkBoxOnYearWhoHaveNot.TabIndex = 2;
+            this.checkBoxOnYearWhoHaveNot.Text = "Вывести тех, кто не прошёл за этот год";
+            this.checkBoxOnYearWhoHaveNot.UseVisualStyleBackColor = true;
+            this.checkBoxOnYearWhoHaveNot.CheckedChanged += new System.EventHandler(this.checkBoxOnYearWhoHaveNot_CheckedChanged);
+            // 
+            // checkBoxOnYear
+            // 
+            this.checkBoxOnYear.AutoSize = true;
+            this.checkBoxOnYear.Location = new System.Drawing.Point(29, 29);
+            this.checkBoxOnYear.Name = "checkBoxOnYear";
+            this.checkBoxOnYear.Size = new System.Drawing.Size(143, 17);
+            this.checkBoxOnYear.TabIndex = 1;
+            this.checkBoxOnYear.Text = "Вывести только за год";
+            this.checkBoxOnYear.UseVisualStyleBackColor = true;
+            this.checkBoxOnYear.CheckedChanged += new System.EventHandler(this.checkBoxOnYear_CheckedChanged);
+            // 
+            // dateTimePickerMed
+            // 
+            this.dateTimePickerMed.CustomFormat = "yyyy";
+            this.dateTimePickerMed.Enabled = false;
+            this.dateTimePickerMed.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
+            this.dateTimePickerMed.Location = new System.Drawing.Point(197, 27);
+            this.dateTimePickerMed.Name = "dateTimePickerMed";
+            this.dateTimePickerMed.ShowUpDown = true;
+            this.dateTimePickerMed.Size = new System.Drawing.Size(91, 20);
+            this.dateTimePickerMed.TabIndex = 0;
+            this.dateTimePickerMed.ValueChanged += new System.EventHandler(this.dateTimePickerMed_ValueChanged);
+            // 
+            // contextMenuStripMed
+            // 
+            this.contextMenuStripMed.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.редактироватьToolStripMenuItem2,
+            this.toolStripSeparator3,
+            this.удалитьЗаписьToolStripMenuItem});
+            this.contextMenuStripMed.Name = "contextMenuStrip1";
+            this.contextMenuStripMed.Size = new System.Drawing.Size(216, 54);
+            // 
+            // редактироватьToolStripMenuItem2
+            // 
+            this.редактироватьToolStripMenuItem2.Name = "редактироватьToolStripMenuItem2";
+            this.редактироватьToolStripMenuItem2.Size = new System.Drawing.Size(215, 22);
+            this.редактироватьToolStripMenuItem2.Text = "Редактировать работника";
+            this.редактироватьToolStripMenuItem2.Click += new System.EventHandler(this.редактироватьToolStripMenuItem2_Click);
+            // 
+            // удалитьЗаписьToolStripMenuItem
+            // 
+            this.удалитьЗаписьToolStripMenuItem.Name = "удалитьЗаписьToolStripMenuItem";
+            this.удалитьЗаписьToolStripMenuItem.Size = new System.Drawing.Size(215, 22);
+            this.удалитьЗаписьToolStripMenuItem.Text = "Удалить запись";
+            this.удалитьЗаписьToolStripMenuItem.Click += new System.EventHandler(this.удалитьЗаписьToolStripMenuItem_Click);
+            // 
+            // toolStripSeparator3
+            // 
+            this.toolStripSeparator3.Name = "toolStripSeparator3";
+            this.toolStripSeparator3.Size = new System.Drawing.Size(212, 6);
+            // 
             // MainAdmin
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -1127,6 +1398,7 @@ namespace Train_Travel.Forms
             this.splitContainer1.ResumeLayout(false);
             this.contextMenuStripVoyages.ResumeLayout(false);
             this.groupBox1.ResumeLayout(false);
+            this.groupBox1.PerformLayout();
             this.groupBox4.ResumeLayout(false);
             this.groupBox4.PerformLayout();
             this.groupBox3.ResumeLayout(false);
@@ -1136,11 +1408,10 @@ namespace Train_Travel.Forms
             this.tabPage2.ResumeLayout(false);
             this.splitContainer2.Panel1.ResumeLayout(false);
             this.splitContainer2.Panel2.ResumeLayout(false);
+            this.splitContainer2.Panel2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer2)).EndInit();
             this.splitContainer2.ResumeLayout(false);
             this.contextMenuStripWorkers.ResumeLayout(false);
-            this.groupBox7.ResumeLayout(false);
-            this.groupBox7.PerformLayout();
             this.groupBox6.ResumeLayout(false);
             this.groupBox6.PerformLayout();
             this.groupBox5.ResumeLayout(false);
@@ -1148,6 +1419,7 @@ namespace Train_Travel.Forms
             this.tabPage4.ResumeLayout(false);
             this.splitContainer3.Panel1.ResumeLayout(false);
             this.splitContainer3.Panel2.ResumeLayout(false);
+            this.splitContainer3.Panel2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer3)).EndInit();
             this.splitContainer3.ResumeLayout(false);
             this.contextMenuStripLokomotiv.ResumeLayout(false);
@@ -1160,6 +1432,17 @@ namespace Train_Travel.Forms
             this.splitContainer4.ResumeLayout(false);
             this.groupBox9.ResumeLayout(false);
             this.groupBox9.PerformLayout();
+            this.tabPage3.ResumeLayout(false);
+            this.splitContainer5.Panel1.ResumeLayout(false);
+            this.splitContainer5.Panel2.ResumeLayout(false);
+            this.splitContainer5.Panel2.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.splitContainer5)).EndInit();
+            this.splitContainer5.ResumeLayout(false);
+            this.groupBox11.ResumeLayout(false);
+            this.groupBox11.PerformLayout();
+            this.groupBox10.ResumeLayout(false);
+            this.groupBox10.PerformLayout();
+            this.contextMenuStripMed.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -1209,7 +1492,6 @@ namespace Train_Travel.Forms
         private System.Windows.Forms.ColumnHeader columnHeader14;
         private System.Windows.Forms.ColumnHeader columnHeader15;
         private System.Windows.Forms.ColumnHeader columnHeader16;
-        private System.Windows.Forms.ColumnHeader columnHeader17;
         private System.Windows.Forms.GroupBox groupBox5;
         private System.Windows.Forms.ContextMenuStrip contextMenuStripWorkers;
         private System.Windows.Forms.ComboBox comboBoxBrigades;
@@ -1219,9 +1501,6 @@ namespace Train_Travel.Forms
         private System.Windows.Forms.GroupBox groupBox6;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.MaskedTextBox maskedTextBoxPhoneSearchWorker;
-        private System.Windows.Forms.GroupBox groupBox7;
-        private System.Windows.Forms.CheckBox checkBoxMed;
-        private System.Windows.Forms.Label label9;
         private System.Windows.Forms.Button buttonAddWorker;
         private System.Windows.Forms.ToolStripMenuItem редактироватьToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem удалитьToolStripMenuItem;
@@ -1268,5 +1547,33 @@ namespace Train_Travel.Forms
         private System.Windows.Forms.TextBox textBoxUserEmail;
         private System.Windows.Forms.Label label16;
         private System.Windows.Forms.TextBox textBoxId;
+        private System.Windows.Forms.CheckBox checkBoxDontSell;
+        private System.Windows.Forms.Label labelQueryCount;
+        private System.Windows.Forms.Label label17;
+        private System.Windows.Forms.Label labelZP;
+        private System.Windows.Forms.Label label18;
+        private System.Windows.Forms.Label labelCountTrains;
+        private System.Windows.Forms.Label label19;
+        private System.Windows.Forms.TabPage tabPage3;
+        private System.Windows.Forms.SplitContainer splitContainer5;
+        private System.Windows.Forms.ListView listViewMed;
+        private System.Windows.Forms.ColumnHeader columnHeader25;
+        private System.Windows.Forms.ColumnHeader columnHeader26;
+        private System.Windows.Forms.ColumnHeader columnHeader41;
+        private System.Windows.Forms.ColumnHeader columnHeader42;
+        private System.Windows.Forms.Button button4;
+        private System.Windows.Forms.GroupBox groupBox11;
+        private System.Windows.Forms.Label label20;
+        private System.Windows.Forms.MaskedTextBox maskedTextBoxMed;
+        private System.Windows.Forms.GroupBox groupBox10;
+        private System.Windows.Forms.DateTimePicker dateTimePickerMed;
+        private System.Windows.Forms.CheckBox checkBoxOnYearWhoHaveNot;
+        private System.Windows.Forms.CheckBox checkBoxOnYear;
+        private System.Windows.Forms.Label Medcount;
+        private System.Windows.Forms.Label label21;
+        private System.Windows.Forms.ContextMenuStrip contextMenuStripMed;
+        private System.Windows.Forms.ToolStripMenuItem редактироватьToolStripMenuItem2;
+        private System.Windows.Forms.ToolStripSeparator toolStripSeparator3;
+        private System.Windows.Forms.ToolStripMenuItem удалитьЗаписьToolStripMenuItem;
     }
 }

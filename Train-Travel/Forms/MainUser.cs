@@ -85,7 +85,8 @@ namespace Train_Travel
                 float sum = 0;
                 while (dataReader.Read())
                 {
-                    if (Convert.ToDateTime(dataReader[9]) > DateTime.Now)
+                    DateTime routeDate = Convert.ToDateTime(Convert.ToDateTime(dataReader[7]).ToShortDateString() + " " + dataReader[8].ToString());
+                    if (routeDate > DateTime.Now)
                     {
                         viewItem = new ListViewItem(new string[]
                         {
@@ -140,7 +141,7 @@ namespace Train_Travel
             queryParams.startDate = dateTimePickerStartDate.Value;
             queryParams.startPrice = textBoxStartPrice.Text;
             queryParams.endPrice = textBoxEndPrice.Text;
-            
+            queryParams.sell = false;
             SqlCommand cmd = new SqlCommand(QueryBuilder.query(queryParams),conn);
             SqlDataReader dataReader = null;
             try
@@ -151,19 +152,24 @@ namespace Train_Travel
                 ListViewItem viewItem;
                 while (dataReader.Read())
                 {
-                    viewItem = new ListViewItem(new string[]
+                    DateTime routeDate = Convert.ToDateTime(Convert.ToDateTime(dataReader[3]).ToShortDateString() + " " + dataReader[4].ToString());
+
+                    if (routeDate > DateTime.Now)
                     {
-                        Convert.ToString(dataReader[1]),
-                        Convert.ToString(dataReader[2]),
-                        Convert.ToString(dataReader[8]),
-                        Convert.ToDateTime(dataReader[3]).ToShortDateString(),
-                        Convert.ToString(dataReader[4]),
-                        Convert.ToDateTime(dataReader[5]).ToString(),
-                        Convert.ToString(dataReader[6]),
-                        Convert.ToString(dataReader[7])
-                    });
-                    viewItem.Tag = dataReader[0];
-                    listViewVoyages.Items.Add(viewItem);
+                        viewItem = new ListViewItem(new string[]
+                        {
+                            Convert.ToString(dataReader[1]),
+                            Convert.ToString(dataReader[2]),
+                            Convert.ToString(dataReader[8]),
+                            Convert.ToDateTime(dataReader[3]).ToShortDateString(),
+                            Convert.ToString(dataReader[4]),
+                            Convert.ToDateTime(dataReader[5]).ToString(),
+                            Convert.ToString(dataReader[6]),
+                            Convert.ToString(dataReader[7])
+                        });
+                        viewItem.Tag = dataReader[0];
+                        listViewVoyages.Items.Add(viewItem);
+                    }
                 }
                 GC.Collect();
             }

@@ -20,3 +20,5 @@ C:\Users\VMICH\Desktop\Train-Travel\Train-Travel\obj\Debug\Train_Travel.Forms.ad
 C:\Users\VMICH\Desktop\Train-Travel\Train-Travel\obj\Debug\Train_Travel.Forms.UserForm.resources
 C:\Users\VMICH\Desktop\Train-Travel\Train-Travel\obj\Debug\Train_Travel.Forms.Admin.resources
 C:\Users\VMICH\Desktop\Train-Travel\Train-Travel\obj\Debug\Train-Travel.csproj.AssemblyReference.cache
+C:\Users\VMICH\Desktop\Train-Travel\Train-Travel\obj\Debug\Train_Travel.Forms.addMed.resources
+C:\Users\VMICH\Desktop\Train-Travel\Train-Travel\obj\Debug\Train_Travel.Forms.pickWorker.resources

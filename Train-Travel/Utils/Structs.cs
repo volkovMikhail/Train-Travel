@@ -6,6 +6,18 @@ using System.Threading.Tasks;
 
 namespace Train_Travel.Utils
 {
+    public class ids
+    {
+        public string id;
+        public int workerId;
+    }
+    public struct medParams
+    {
+        public bool onYear;
+        public bool whoHaveNot;
+        public DateTime date;
+        public string phone;
+    }
     public struct queryParams
     {
         public bool DateSearch;
@@ -14,6 +26,7 @@ namespace Train_Travel.Utils
         public DateTime startDate;
         public string startPrice;
         public string endPrice;
+        public bool sell;
     }
 
     public struct workersParams
@@ -21,7 +34,6 @@ namespace Train_Travel.Utils
         public string otdel;
         public string brigada;
         public string phone;
-        public bool med;
     }
 
     public struct trainsParams

@@ -33,6 +33,7 @@ namespace Train_Travel.Forms
             updateComboPlaces();
             outputTrains();
             outputUsers();
+            outputMed();
         }
 
         private void outputUsers()
@@ -158,6 +159,7 @@ namespace Train_Travel.Forms
             queryParams.startDate = dateTimePickerStartDate.Value;
             queryParams.startPrice = textBoxStartPrice.Text;
             queryParams.endPrice = textBoxEndPrice.Text;
+            queryParams.sell = checkBoxDontSell.Checked;
 
             SqlCommand cmd = new SqlCommand(QueryBuilder.query(queryParams), conn);
             SqlDataReader dataReader = null;
@@ -289,7 +291,6 @@ namespace Train_Travel.Forms
             workersParams workersParams;
             workersParams.otdel = Convert.ToString(comboBoxOtdel.SelectedItem);
             workersParams.brigada = Convert.ToString(comboBoxBrigades.SelectedItem);
-            workersParams.med = checkBoxMed.Checked;
             workersParams.phone = maskedTextBoxPhoneSearchWorker.Text;
             SqlCommand cmd = new SqlCommand(QueryBuilder.workers(workersParams), conn);
             SqlDataReader dataReader = null;
@@ -299,6 +300,8 @@ namespace Train_Travel.Forms
                 listViewWorkers.Items.Clear();
                 dataReader = cmd.ExecuteReader();
                 ListViewItem viewItem;
+                int count = 0;
+                double sumZp = 0;
                 while (dataReader.Read())
                 {
                     string type;
@@ -320,11 +323,21 @@ namespace Train_Travel.Forms
                         Convert.ToString(dataReader[6]),
                         Convert.ToString(dataReader[7]),
                         type,
-                        Convert.ToDateTime(dataReader[9]).ToShortDateString(),
                     });
                     viewItem.Tag = dataReader[0];
                     listViewWorkers.Items.Add(viewItem);
+                    count++;
+                    sumZp += Convert.ToDouble(dataReader[7]);
                 }
+                if (sumZp != 0 && count != 0)
+                {
+                    labelZP.Text = (sumZp / count).ToString();
+                }
+                else
+                {
+                    labelZP.Text = 0.ToString();
+                }
+                labelQueryCount.Text = count.ToString();
                 GC.Collect();
             }
             catch (Exception ex)
@@ -420,6 +433,7 @@ namespace Train_Travel.Forms
 
         private void редактироватьToolStripMenuItem_Click(object sender, EventArgs e)
         {
+            
             if (listViewWorkers.SelectedIndices.Count > 0)
             {
                 addWorker addWorker = new addWorker(Convert.ToInt32(listViewWorkers.SelectedItems[0].Tag));
@@ -431,6 +445,7 @@ namespace Train_Travel.Forms
             }
             listViewWorkers.SelectedItems.Clear();
             outputWorkers();
+            outputMed();
         }
 
         private void comboBoxOtdel_SelectedIndexChanged(object sender, EventArgs e)
@@ -472,6 +487,7 @@ namespace Train_Travel.Forms
             trainsParams.repBrigade = Convert.ToString(comboBoxRepairBrigade.SelectedItem);
             trainsParams.id = textBoxTrainId.Text;
             trainsParams.place = Convert.ToString(comboBoxConnPlace.SelectedItem);
+            
             SqlCommand cmd = new SqlCommand(QueryBuilder.trains(trainsParams), conn);
             SqlDataReader dataReader = null;
             try
@@ -480,6 +496,7 @@ namespace Train_Travel.Forms
                 listViewTrains.Items.Clear();
                 dataReader = cmd.ExecuteReader();
                 ListViewItem viewItem;
+                int count = 0;
                 while (dataReader.Read())
                 {
                     viewItem = new ListViewItem(new string[]
@@ -495,7 +512,9 @@ namespace Train_Travel.Forms
                     });
                     viewItem.Tag = dataReader[0];
                     listViewTrains.Items.Add(viewItem);
+                    count++;
                 }
+                labelCountTrains.Text = count.ToString();
                 GC.Collect();
             }
             catch (Exception ex)
@@ -625,6 +644,206 @@ namespace Train_Travel.Forms
                 userForm.ShowDialog();
             }
             listViewUsers.SelectedItems.Clear();
+        }
+
+        private void checkBox2_CheckedChanged(object sender, EventArgs e)
+        {
+            outputFromVoyages();
+        }
+
+        private void outputMed()
+        {
+            medParams med;
+            med.date = dateTimePickerMed.Value;
+            med.onYear = checkBoxOnYear.Checked;
+            med.whoHaveNot = checkBoxOnYearWhoHaveNot.Checked;
+            med.phone = maskedTextBoxMed.Text;
+
+            SqlCommand cmd = new SqlCommand(QueryBuilder.med(med), conn);
+            SqlDataReader dataReader = null;
+            try
+            {
+                conn.Open();
+                listViewMed.Items.Clear();
+                dataReader = cmd.ExecuteReader();
+                ListViewItem viewItem;
+                int count = 0;
+                if (checkBoxOnYearWhoHaveNot.Checked)
+                {
+                    List<string[]> list = new List<string[]>();
+
+                    while (dataReader.Read())
+                    {
+                        list.Add(new string[]
+                        {
+                            Convert.ToString(dataReader[0]) == "" ? "-" : Convert.ToString(dataReader[0]),
+
+                            $"{Convert.ToString(dataReader[1])} {Convert.ToString(dataReader[2])} {Convert.ToString(dataReader[3])}",
+                            Convert.ToString(dataReader[4]),
+                            (Convert.ToString(dataReader[5])+" -").Split(new char[]{' '})[0],
+                            dataReader[6].ToString()
+                        });
+                    }
+                    List<string[]> much = list.FindAll(e=>(e[3]+".-.-.-").Split(new char[]{'.'})[2]==dateTimePickerMed.Value.Year.ToString());
+                    foreach (var item in much)
+                    {
+                        list.RemoveAll(e => item[4] == e[4]);
+                    }
+
+                    for (int i = 0; i < list.Count; i++)
+                    {
+                        list[i][0] = "-";
+                        list[i][3] = "-";
+                        list[i][4] = "-";
+                    }
+
+                    List<string[]> copy = list.ToList();
+
+                    for (int i = 0; i < copy.Count; i++)
+                    {
+                        List<int> ids = new List<int>();
+                        for (int j = 0; j < list.Count; j++)
+                        {
+                            if (list[j][2] == copy[i][2])
+                            {
+                                ids.Add(j);
+                            }
+                        }
+                        if (ids.Count > 1)
+                        {
+                            foreach (var item in ids)
+                            {
+                                list.RemoveAt(item);
+                            }
+                        }
+                    }
+
+                    foreach (var item in list)
+                    {
+                        viewItem = new ListViewItem(item);
+                        viewItem.Tag = item[item.Length-1];
+                        listViewMed.Items.Add(viewItem);
+                        count++;
+                    }
+                }
+                else
+                {
+                    while (dataReader.Read())
+                    {
+                        viewItem = new ListViewItem(new string[]
+                        {
+                        Convert.ToString(dataReader[0]) == "" ? "-" : Convert.ToString(dataReader[0]),
+
+                        $"{Convert.ToString(dataReader[1])} {Convert.ToString(dataReader[2])} {Convert.ToString(dataReader[3])}",
+                        Convert.ToString(dataReader[4]),
+                        (Convert.ToString(dataReader[5])+" . . ").Split(new char[]{' '})[0]
+                        });
+                        viewItem.Tag = dataReader[6];
+                        listViewMed.Items.Add(viewItem);
+                        count++;
+                    }
+                }
+                Medcount.Text = count.ToString();
+                GC.Collect();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            finally
+            {
+                if (dataReader != null && !dataReader.IsClosed)
+                {
+                    dataReader.Close();
+                }
+                conn.Close();
+            }
+        }
+
+        private void checkBoxOnYear_CheckedChanged(object sender, EventArgs e)
+        {
+            outputMed();
+            dateTimePickerMed.Enabled = !dateTimePickerMed.Enabled;
+        }
+
+        private void checkBoxOnYearWhoHaveNot_CheckedChanged(object sender, EventArgs e)
+        {
+            outputMed();
+        }
+
+        private void dateTimePickerMed_ValueChanged(object sender, EventArgs e)
+        {
+            outputMed();
+        }
+
+        private void maskedTextBoxMed_TextChanged(object sender, EventArgs e)
+        {
+            outputMed();
+        }
+
+        private void splitContainer5_Panel2_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void button4_Click(object sender, EventArgs e)
+        {
+            addMed addMed = new addMed();
+            addMed.ShowDialog();
+            outputMed();
+        }
+
+        private void listViewMed_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void редактироватьToolStripMenuItem2_Click(object sender, EventArgs e)
+        {
+            if (listViewMed.SelectedIndices.Count > 0)
+            {
+                string id = listViewMed.SelectedItems[0].Tag.ToString();
+                
+                addWorker addWorker = new addWorker(Convert.ToInt32(id));
+                addWorker.ShowDialog();
+            }
+            else
+            {
+                MessageBox.Show("Вы не выбрали запись", "Info", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
+                listViewMed.SelectedItems.Clear();
+                outputWorkers();
+                outputMed();
+        }
+
+        private void удалитьЗаписьToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (listViewMed.SelectedIndices.Count > 0)
+            {
+                try
+                {
+                    string id = listViewMed.SelectedItems[0].SubItems[0].Text;
+                    
+                    if (id == "-")
+                    {
+                        return;
+                    }
+                    SqlCommand cmd = new SqlCommand($"DELETE FROM Med WHERE Id = {id}", conn);
+
+                    conn.Open();
+                    cmd.ExecuteNonQuery();
+                }
+                finally
+                {
+                    conn.Close();
+                }
+            }
+            else
+            {
+                MessageBox.Show("Вы не выбрали запись", "Info", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
+            listViewMed.SelectedItems.Clear();
+            outputMed();
         }
     }
 }

@@ -23,6 +23,9 @@ namespace Train_Travel.Forms
             conn = new SqlConnection(ConfigurationManager.ConnectionStrings["db"].ConnectionString);
             loadBrigades();
             isEditMode = false;
+            listView1.Visible = false;
+            label2.Visible = false;
+            this.Size = new Size(350,this.Height);
         }
 
         public addWorker(int id)
@@ -31,6 +34,7 @@ namespace Train_Travel.Forms
             InitializeComponent();
             conn = new SqlConnection(ConfigurationManager.ConnectionStrings["db"].ConnectionString);
             loadBrigades();
+            this.Text = "Изменить сотрудника";
             button1.Text = "Изменить";
             isEditMode = true;
             SqlCommand cmd = new SqlCommand($"SELECT * FROM Workers WHERE Id = {id}", conn);
@@ -49,7 +53,6 @@ namespace Train_Travel.Forms
                     maskedTextBox2.Text = Convert.ToString(dataReader[6]);
                     textBoxZP.Text = Convert.ToString(dataReader[7]);
                     comboBoxType.SelectedIndex = Convert.ToInt32(dataReader[8]);
-                    dateTimePicker1.Value = Convert.ToDateTime(dataReader[9]);
                 }
             }
             catch (Exception ex)
@@ -98,7 +101,39 @@ namespace Train_Travel.Forms
 
         private void addWorker_Load(object sender, EventArgs e)
         {
-            
+            if (isEditMode)
+            {
+                listView1.Items.Clear();
+                SqlCommand cmd = new SqlCommand($"SELECT * FROM Med WHERE WorkerID = {id}", conn);
+                SqlDataReader dataReader = null;
+                try
+                {
+                    conn.Open();
+                    dataReader = cmd.ExecuteReader();
+                    ListViewItem viewItem;
+                    while (dataReader.Read())
+                    {
+                        viewItem = new ListViewItem(new string[]{
+                            Convert.ToDateTime(dataReader[2]).ToShortDateString()
+                        });
+                        listView1.Items.Add(viewItem);
+                    }
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+                finally
+                {
+                    if (dataReader != null && !dataReader.IsClosed)
+                    {
+                        dataReader.Close();
+                    }
+                    conn.Close();
+
+                }
+                GC.Collect();
+            }
         }
 
         private void textBoxZP_KeyPress(object sender, KeyPressEventArgs e)
@@ -126,7 +161,7 @@ namespace Train_Travel.Forms
             }
             else
             {
-                command = "INSERT INTO Workers VALUES(@otdel,@brigade,@name,@lastname,@middle,@phone,@zp,@type,@medDate)";
+                command = "INSERT INTO Workers VALUES(@otdel,@brigade,@name,@lastname,@middle,@phone,@zp,@type)";
             }
             if (comboBoxType.SelectedIndex > -1 && comboBoxOtdel.SelectedIndex > -1 && comboBoxBrigade.SelectedIndex > -1 && textBoxName.Text.Trim().Length > 1 && textBoxLastname.Text.Trim().Length>1 && textBoxMiddle.Text.Trim().Length >1 &&textBoxZP.Text.Length > 0 && maskedTextBox2.Text.Length == 17)
             {
@@ -141,7 +176,6 @@ namespace Train_Travel.Forms
                     cmd.Parameters.Add("@phone", SqlDbType.NVarChar).Value = maskedTextBox2.Text;
                     cmd.Parameters.Add("@zp", SqlDbType.Decimal).Value = Convert.ToSingle(textBoxZP.Text);
                     cmd.Parameters.Add("@type", SqlDbType.Bit).Value = comboBoxType.SelectedIndex;
-                    cmd.Parameters.Add("@medDate", SqlDbType.Date).Value = dateTimePicker1.Value;
                     conn.Open();
                     cmd.ExecuteNonQuery();
                 }

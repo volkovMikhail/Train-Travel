@@ -29,6 +29,7 @@ namespace Train_Travel.Forms
             InitializeComponent();
             this.id = id;
             isEditMode = true;
+            this.Text = "Изменить локомотив";
             button1.Text = "Изменить";
             conn = new SqlConnection(ConfigurationManager.ConnectionStrings["db"].ConnectionString);
         }
