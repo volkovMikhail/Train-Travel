@@ -30,27 +30,30 @@ namespace Train_Travel.Forms
             workerid = pickWorker.workerID;
             SqlCommand cmd = new SqlCommand($"SELECT * from workers where id={pickWorker.workerID}", conn);
             SqlDataReader dataReader = null;
-            try
+            if (workerid > 0)
             {
-                conn.Open();
-                dataReader = cmd.ExecuteReader();
-                dataReader.Read();
-
-                labelWorker.Text = $"{Convert.ToString(dataReader[3])} {Convert.ToString(dataReader[4])} {Convert.ToString(dataReader[5])}";
-
-                GC.Collect();
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
-            finally
-            {
-                if (dataReader != null && !dataReader.IsClosed)
+                try
                 {
-                    dataReader.Close();
+                    conn.Open();
+                    dataReader = cmd.ExecuteReader();
+                    dataReader.Read();
+
+                    labelWorker.Text = $"{Convert.ToString(dataReader[3])} {Convert.ToString(dataReader[4])} {Convert.ToString(dataReader[5])}";
+
+                    GC.Collect();
                 }
-                conn.Close();
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+                finally
+                {
+                    if (dataReader != null && !dataReader.IsClosed)
+                    {
+                        dataReader.Close();
+                    }
+                    conn.Close();
+                }
             }
         }
 
@@ -58,24 +61,27 @@ namespace Train_Travel.Forms
 
         private void button2_Click(object sender, EventArgs e)
         {
-            SqlCommand cmd = new SqlCommand($"INSERT INTO Med values({workerid},'{dateTimePicker1.Value.Year}-{dateTimePicker1.Value.Month}-{dateTimePicker1.Value.Day}')", conn);
-            try
+            if (workerid > 0)
             {
-                conn.Open();
-                cmd.ExecuteNonQuery();
+                SqlCommand cmd = new SqlCommand($"INSERT INTO Med values({workerid},'{dateTimePicker1.Value.Year}-{dateTimePicker1.Value.Month}-{dateTimePicker1.Value.Day}')", conn);
+                try
+                {
+                    conn.Open();
+                    cmd.ExecuteNonQuery();
 
-                GC.Collect();
+                    GC.Collect();
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+                finally
+                {
+                    conn.Close();
+                }
+
+                this.Close();
             }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
-            finally
-            {
-                conn.Close();
-            }
-            
-            this.Close();
         }
     }
 }
