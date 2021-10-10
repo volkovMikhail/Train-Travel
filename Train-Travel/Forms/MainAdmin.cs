@@ -171,6 +171,14 @@ namespace Train_Travel.Forms
                 ListViewItem viewItem;
                 while (dataReader.Read())
                 {
+                    if (checkBoxDontSell.Checked)
+                    {
+                        DateTime start = Convert.ToDateTime(Convert.ToDateTime(dataReader[3]).ToShortDateString() + " " + Convert.ToString(dataReader[4]));
+                        if (start > DateTime.Now)
+                        {
+                            continue;
+                        }
+                    }
                     viewItem = new ListViewItem(new string[]
                     {
                         Convert.ToString(dataReader[1]),

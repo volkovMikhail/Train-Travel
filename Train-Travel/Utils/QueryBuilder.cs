@@ -49,10 +49,6 @@ namespace Train_Travel.Utils
             {
                 cmd += $"AND price <= {QP.endPrice} ";
             }
-            if (QP.sell)
-            {
-                cmd += $"AND (time < '{DateTime.Now.TimeOfDay}' OR startDate < '{DateTime.Now.Year}-{DateTime.Now.Month}-{DateTime.Now.Day}') ";
-            }
             return cmd;
         }
 
